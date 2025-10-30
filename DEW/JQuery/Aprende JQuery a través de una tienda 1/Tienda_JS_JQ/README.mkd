@@ -1,0 +1,199 @@
+
+# Tienda JS + jQuery + Fetch
+
+Proyecto didáctico para FP: pequeña tienda que consume la API pública de FakeStore (`https://fakestoreapi.com/products`), muestra los productos, permite filtrarlos y gestiona un carrito persistente en `localStorage`.
+
+Está pensado para explicar:
+1. Consumo de API con `fetch`.
+2. Uso de jQuery para DOM y eventos.
+3. Separación por clases (API, productos, carrito, vista).
+4. Uso de ES Modules en el navegador.
+
+---
+
+## 1. Estructura del proyecto
+
+````text
+Tienda_JS_JQ/
+├─ index.html
+├─ styles/
+│  └─ styles.css
+├─ libs/
+│  └─ jquery.js
+└─ js/
+   ├─ main.js          ← punto de entrada (orquestador)
+   ├─ ApiStoreService.js
+   ├─ ProductManager.js
+   ├─ CartManager.js
+   └─ ShopView.js
+`````
+
+* **`index.html`**: carga jQuery primero y después tu código como módulo.
+* **`main.js`**: arranca la app, conecta managers y vista.
+* **`ApiStoreService.js`**: única clase que habla con la API.
+* **`ProductManager.js`**: usa el servicio y mantiene la caché de productos.
+* **`CartManager.js`**: toda la lógica de carrito + `localStorage`.
+* **`ShopView.js`**: todo el pintado en el DOM.
+* **`styles.css`**: maquetación básica.
+
+---
+
+## 2. Requisitos
+
+* Navegador moderno (soporta ES Modules).
+* Un servidor estático sencillo (VS Code **Live Server** o `npx serve .`), porque los módulos no cargan con `file://`.
+* Conexión a Internet para la API y para jQuery si lo cargas desde CDN. Si usas `libs/jquery.js`, no hace falta.
+
+---
+
+## 3. Cómo arrancar
+
+1. Abre la carpeta `Tienda_JS_JQ/` en VS Code.
+2. Abre `index.html`.
+3. Ejecuta **Live Server** o sirve la carpeta con un servidor estático.
+4. Entra en la URL que te dé (ej. `http://127.0.0.1:5500/`).
+5. Abre consola del navegador si quieres ver errores.
+
+---
+
+## 4. Rutas importantes
+
+En `index.html` se debe cargar así:
+
+```html
+<!-- jQuery primero -->
+<script src="libs/jquery.js"></script>
+
+<!-- tu app como módulo -->
+<script type="module" src="js/main.js"></script>
+```
+
+Y dentro de `js/main.js` las importaciones deben ser **relativas** y **con el mismo nombre de archivo**:
+
+```javascript
+import { ProductManager } from "./ProductManager.js";
+import { CartManager } from "./CartManager.js";
+import { ShopView } from "./ShopView.js";
+```
+
+Si cambias el nombre del fichero (`ProductsManager.js` vs `ProductManager.js`) o quitas el `./`, obtendrás:
+`GET ... 404 (Not Found)`.
+
+---
+
+## 5. Proceso de creación (evolución)
+
+1. **Versión base**
+
+   * HTML con contenedor de productos y panel de carrito.
+   * `fetch("https://fakestoreapi.com/products")` en un solo JS.
+   * jQuery para inyectar tarjetas.
+
+2. **Carrito en memoria**
+
+   * Array `carrito = []`.
+   * Botón “Añadir” en cada tarjeta.
+   * Recalcular total y nº de ítems.
+
+3. **Persistencia en `localStorage`**
+
+   * Guardar el array al añadir o vaciar.
+   * Cargar el carrito al inicio.
+
+4. **Separación de acceso a la API**
+
+   * Crear `ApiStoreService.js` con `getAllProducts()` y `getProductById(id)`.
+   * El resto de la app ya no llama a `fetch` directo.
+
+5. **Capa de productos**
+
+   * Crear `ProductManager.js`: llama al servicio y guarda la caché.
+   * Permite filtrar usando la caché sin volver a llamar a la API.
+
+6. **Capa de carrito**
+
+   * Crear `CartManager.js`: `add`, `clear`, `getItems`, `getTotals`, carga y guarda.
+   * `main.js` deja de saber de `localStorage`.
+
+7. **Capa de vista**
+
+   * Crear `ShopView.js`: `renderProducts(...)`, `renderCart(...)`, `onSearch(...)`, `onClearCart(...)`.
+   * `main.js` pasa a ser sólo orquestador que une:
+
+     * productos ↔ vista
+     * carrito ↔ vista
+
+8. **Renombrado por criterio**
+
+   * Para mantener coherencia con `CartManager`, se renombra el antiguo `ProductRepository` a `ProductManager`.
+
+---
+
+## 6. Flujo de la aplicación
+
+1. `main.js` arranca cuando el DOM está listo.
+2. Pide a `ProductManager` todos los productos (`fetchAll()`).
+3. Pasa la lista a `ShopView.renderProducts(...)` con un callback para “Añadir”.
+4. Cuando el usuario pulsa “Añadir”:
+
+   * `main.js` busca el producto en `ProductManager.getAllCached()`
+   * se lo pasa a `CartManager.add(...)`
+   * vuelve a pedir a la vista que pinte el carrito.
+5. Cuando el usuario escribe en el buscador:
+
+   * `main.js` filtra sobre la caché del `ProductManager`
+   * y pide a la vista que pinte el resultado.
+6. Cuando pulsa “Vaciar”:
+
+   * `CartManager.clear()`
+   * vista vuelve a pintar.
+
+---
+
+## 7. Archivos clave
+
+### `js/ApiStoreService.js`
+
+```javascript
+export class ApiStoreService {
+  constructor(baseUrl = "https://fakestoreapi.com") {
+    this.baseUrl = baseUrl;
+  }
+  async getAllProducts() {
+    const r = await fetch(`${this.baseUrl}/products`);
+    if (!r.ok) throw new Error("No se pudieron cargar los productos");
+    return r.json();
+  }
+  async getProductById(id) {
+    const r = await fetch(`${this.baseUrl}/products/${id}`);
+    if (!r.ok) throw new Error("No se pudo cargar el producto");
+    return r.json();
+  }
+}
+```
+
+### `js/ProductManager.js`
+
+```javascript
+import { ApiStoreService } from "./ApiStoreService.js";
+
+export class ProductManager {
+  constructor(api = new ApiStoreService()) {
+    this.api = api;
+    this._cache = [];
+  }
+  async fetchAll() {
+    const data = await this.api.getAllProducts();
+    this._cache = data;
+    return data;
+  }
+  getAllCached() {
+    return this._cache;
+  }
+}
+```
+
+## 8. Licencia
+
+Uso educativo.
+
