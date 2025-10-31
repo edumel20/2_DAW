@@ -1,20 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
     <title>Contacto</title>
-</head>
-<body>
-     <header>
-        <h1><a href="index.html">Web con Imágenes optimizadas</a></h1>
-        <nav>
-            <a href="galeria.html">Galería</a>
-            <a href="contacto.html">Contacto</a>
-        </nav>
-     </header>
-     <picture
-
-</body>
+  </head>
+  <body>
+    <header>
+      <h1><a href="index.html">Web con Imágenes optimizadas</a></h1>
+      <nav>
+        <a href="galeria.html">Galería</a>
+        <a href="contacto.html">Contacto</a>
+      </nav>
+    </header>
+    <picture>
+      <source
+        media="(min-width: 1024px)"
+        srcset="images/don_pollo_grande.png"
+      />
+      <source
+        media="(min-width: 768px)"
+        srcset="images/don_pollo_mediano.jpeg"
+      />
+      <img src="images/don_pollo_pequeño.jpeg" alt="" aria-hidden="true" />
+    </picture>
+  </body>
 </html>

@@ -1,40 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css"/>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
     <title>Galería</title>
-</head>
-<body>
+  </head>
+  <body>
     <header>
-        <h1><a href="index.html">Web con Imágenes optimizadas</a></h1>
-        <nav>
-            <a href="galeria.html">Galería</a>
-            <a href="contacto.html">Contacto</a>
-        </nav>
-        </header>
-        <img class="map_image" 
-            data-src="images/imagen_mapa.png" src="images/miniatura.png" alt="Lenguajes de Programación"
-            usemap="#lenguajes_programacion"
-        >
-        <map name="lenguajes_programacion">
-            <area target="_blank" alt="HTML5" title="HTML5" href="https://r.search.yahoo.com/_ylt=AwrLNBieFgRpAQIAgUJU04lQ;_ylu=Y29sbwNpcjIEcG9zAzEEdnRpZAMEc2VjA3Ny/RV=2/RE=1763085214/RO=10/RU=https%3a%2f%2fwww.w3schools.com%2fhtml%2f/RK=2/RS=_484yxnhnL3io68No2oSwn3G3pw-" coords="61,203,172,40" shape="rect">
-            <area target="_blank" alt="JavaScript" title="JavaScript" href="https://www.w3schools.com/js/DEFAULT.asp" coords="279,122,71" shape="circle">
-            <area target="_blank" alt="Git" title="Git" href="https://www.w3schools.com/git/" coords="626,119,67" shape="circle">
-        </map>
-        
-        <script>
-        function init() {
-            var imgDefer = document.getElementsByTagName('img');
-            for (var i = 0; i < imgDefer.length; i++) {
-                if(imgDefer[i].getAttribute('data-src')) {
-                    imgDefer[i].setAttribute('src',imgDefer[i].getAttribute('data-src')
-                );
-                }
-            }
+      <h1><a href="index.html">Web con Imágenes optimizadas</a></h1>
+      <nav>
+        <a href="galeria.html">Galería</a>
+        <a href="contacto.html">Contacto</a>
+      </nav>
+    </header>
+    <img
+      class="map_image"
+      data-src="images/imagen_mapa.png"
+      src="images/miniatura.png"
+      alt="Lenguajes de Programación"
+      usemap="#lenguajes_programacion"
+    />
+    <map name="lenguajes_programacion">
+      <area
+        target="_blank"
+        alt="HTML5"
+        title="HTML5"
+        href="https://r.search.yahoo.com/_ylt=AwrLNBieFgRpAQIAgUJU04lQ;_ylu=Y29sbwNpcjIEcG9zAzEEdnRpZAMEc2VjA3Ny/RV=2/RE=1763085214/RO=10/RU=https%3a%2f%2fwww.w3schools.com%2fhtml%2f/RK=2/RS=_484yxnhnL3io68No2oSwn3G3pw-"
+        coords="61,203,172,40"
+        shape="rect"
+      />
+      <area
+        target="_blank"
+        alt="JavaScript"
+        title="JavaScript"
+        href="https://www.w3schools.com/js/DEFAULT.asp"
+        coords="279,122,71"
+        shape="circle"
+      />
+      <area
+        target="_blank"
+        alt="Git"
+        title="Git"
+        href="https://www.w3schools.com/git/"
+        coords="626,119,67"
+        shape="circle"
+      />
+    </map>
+
+    <picture>
+      <source media="(min-width: 1024px)" srcset="images/hamburguesa.jpeg" />
+      <source media="(min-width: 768px)" srcset="images/hotdog.jpg" />
+      <img src="images/arepita.jpg" alt="Arepa" aria-hidden="true" />
+    </picture>
+
+    <script>
+      function init() {
+        var imgDefer = document.getElementsByTagName("img");
+        for (var i = 0; i < imgDefer.length; i++) {
+          if (imgDefer[i].getAttribute("data-src")) {
+            imgDefer[i].setAttribute(
+              "src",
+              imgDefer[i].getAttribute("data-src")
+            );
+          }
         }
-        window.onload = init;  
-        </script>
-    </body>
+      }
+      window.onload = init;
+    </script>
+  </body>
 </html>
