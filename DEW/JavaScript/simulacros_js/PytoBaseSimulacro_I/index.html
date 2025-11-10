@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Examen Práctico de JavaScript</title>
+    <link rel="stylesheet" href="styles.css" />
+    <meta name="color-scheme" content="light dark" />
+  </head>
+  <body>
+    <header class="container">
+      <h1>Examen Práctico de JavaScript</h1>
+      <p class="muted small">Edita solo <code>script.js</code> y
+        <code>data/products.json</code>.</p>
+      <nav class="tabs">
+        <a href="#A">A</a><a href="#B">B</a><a href="#C">C</a><a
+          href="#D">D</a><a href="#E">E</a><a href="#F">F</a>
+      </nav>
+    </header>
+
+    <main class="container grid">
+      <!-- A) Variables, tipos, ámbito y conversiones -->
+      <section id="A" class="card" aria-labelledby="hA">
+        <h2 id="hA">A) Variables, tipos, ámbito y conversiones</h2>
+        <p class="muted">Salida esperada en consola. Muestra aquí resultados
+          clave si quieres.</p>
+        <div id="salidaA" class="panel monospace"
+          aria-live="polite"><!-- render opcional --></div>
+      </section>
+
+      <!-- B) Decisiones y bucles -->
+      <section id="B" class="card" aria-labelledby="hB">
+        <h2 id="hB">B) Decisiones y bucles</h2>
+        <div class="row">
+          <div class="col">
+            <h3>Notas clasificadas</h3>
+            <ul id="listaNotas" class="list"
+              aria-label="Notas clasificadas"><!-- li dinámicos --></ul>
+          </div>
+          <div class="col">
+            <h3>Recuento</h3>
+            <p><strong>SB:</strong> <span id="contSB">0</span></p>
+          </div>
+        </div>
+      </section>
+
+      <!-- C) Arrays y operaciones agregadas -->
+      <section id="C" class="card" aria-labelledby="hC">
+        <h2 id="hC">C) Arrays y operaciones agregadas</h2>
+        <div class="row">
+          <div class="col">
+            <h3>Modelos</h3>
+            <ul id="soloModelos" class="list"><!-- li dinámicos --></ul>
+          </div>
+          <div class="col">
+            <h3>Recientes (>=2018)</h3>
+            <ul id="recientes" class="list"><!-- li dinámicos --></ul>
+          </div>
+        </div>
+        <div class="row stats">
+          <div class="stat"><span class="label">Suma</span><span
+              id="sumaPrecios" class="value">0</span></div>
+          <div class="stat"><span class="label">Media</span><span
+              id="mediaPrecio" class="value">0</span></div>
+          <div class="stat"><span class="label">Máx</span><span id="maxPrecio"
+              class="value">—</span></div>
+        </div>
+        <h3>Ordenados por precio</h3>
+        <ul id="ordenados" class="list"><!-- li dinámicos --></ul>
+      </section>
+
+      <!-- D) Funciones y modularidad ligera -->
+      <section id="D" class="card" aria-labelledby="hD">
+        <h2 id="hD">D) Funciones y modularidad</h2>
+        <div class="row">
+          <div class="col">
+            <h3>Con IVA</h3>
+            <ul id="listaIVA" class="list"><!-- li dinámicos --></ul>
+          </div>
+          <div class="col">
+            <h3>Etiquetas</h3>
+            <ul id="listaEtiquetas" class="list"><!-- li dinámicos --></ul>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <footer class="container muted small">
+      <p>Comprueba consola y Network. Controla bloqueador de ventanas al abrir
+        detalles.</p>
+    </footer>
+
+    <script defer src="scripts.js"></script>
+  </body>
+</html>
