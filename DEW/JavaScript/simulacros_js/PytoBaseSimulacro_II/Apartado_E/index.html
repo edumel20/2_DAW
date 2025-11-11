@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Examen Práctico de JavaScript</title>
+    <link rel="stylesheet" href="styles.css" />
+    <meta name="color-scheme" content="light dark" />
+  </head>
+  <body>
+    <header class="container">
+      <h1>Examen Práctico de JavaScript</h1>
+      <nav class="tabs"><a href="#E">E</a></nav>
+    </header>
+
+    <main class="container grid">
+      <!-- E) DOM + eventos + formularios + almacenamiento -->
+      <section id="E" class="card" aria-labelledby="hE">
+        <h2 id="hE">E) Formulario de alumnado</h2>
+        <form id="frmAlumno" novalidate>
+          <div class="field">
+            <label for="nombre">Nombre</label>
+            <input id="nombre" name="nombre" type="text" autocomplete="name"
+              required />
+            <small class="error" id="err-nombre" aria-live="polite"></small>
+          </div>
+          <div class="field">
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" autocomplete="email"
+              required />
+            <small class="error" id="err-email" aria-live="polite"></small>
+          </div>
+          <div class="field">
+            <label for="edad">Edad</label>
+            <input id="edad" name="edad" type="number" min="16" max="99"
+              required />
+            <small class="error" id="err-edad" aria-live="polite"></small>
+          </div>
+          <div class="actions">
+            <button id="btnGuardar" type="submit">Guardar</button>
+            <button id="btnLimpiar" type="button" class="secondary">Limpiar
+              lista</button>
+          </div>
+        </form>
+        <h3>Lista</h3>
+        <ul id="listaAlumnos" class="list"
+          aria-label="Alumnado guardado"><!-- li dinámicos --></ul>
+      </section>
+      <script defer src="scripts_Apartado_E.js"></script>
+    </body>
+  </html>

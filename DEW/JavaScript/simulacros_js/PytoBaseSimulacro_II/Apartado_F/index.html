@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Examen Práctico de JavaScript</title>
+    <link rel="stylesheet" href="styles.css" />
+    <meta name="color-scheme" content="light dark" />
+  </head>
+  <body>
+    <header class="container">
+      <h1>Examen Práctico de JavaScript</h1>
+      <nav class="tabs">
+        <a href="#F">F</a>
+      </nav>
+    </header>
+
+    <main class="container grid">
+      <!-- F) fetch + render + ventana secundaria -->
+      <section id="F" class="card" aria-labelledby="hF">
+        <h2 id="hF">F) Productos (fetch)</h2>
+        <div class="field">
+          <label for="txtFiltro">Filtrar por título</label>
+          <input id="txtFiltro" name="txtFiltro" type="search"
+            placeholder="Escribe para filtrar…" />
+        </div>
+        <div id="estado" class="status" aria-live="polite"></div>
+        <ul id="productos" class="cards"
+          aria-label="Lista de productos"><!-- li dinámicos --></ul>
+      </section>
+    </main>
+
+    <script defer src="scripts_Apartado_F.js"></script>
+  </body>
+</html>
