@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="styles.css">
+        <title>Práctica jQuery - Gravity Falls</title>
+    </head>
+    <body>
+        <h1>Práctica jQuery con Gravity Falls</h1>
+        <button class="btn" id="btn-ejecutar">Ejecutar</button>
+        <div>
+            <p id="intro">Bienvenido al bosque de Gravity Falls.</p>
+            <p class="misterio">Este bosque guarda muchos secretos.</p>
+            <p class="misterio" data-lugar="cabaña">La cabaña del misterio es un
+                buen lugar para comenzar.</p>
+            <p class="misterio" data-lugar="bosque">Pero el bosque esconde cosas
+                aún más oscuras.</p>
+            <p data-personaje="Dipper">Dipper está investigando un fenómeno
+                extraño.</p>
+            <p data-personaje="Mabel">Mabel ha hecho nuevos amigos
+                brillantes.</p>
+            <p data-personaje="Bill" data-enemigo="true">Bill Cipher está
+                acechando en las sombras.</p>
+            <img src="bill.png" alt="Bill Cipher" title="villano" class="oculto"
+                data-enemigo="true" data-rol="enemigo-final">
+        </div>
+        <script src="jquery-3.7.1.js"></script>
+        <script src="scripts.js"></script>
+    </body>
+</html>

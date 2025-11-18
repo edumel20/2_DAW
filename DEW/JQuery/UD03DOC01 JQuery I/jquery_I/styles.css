@@ -1,0 +1,5 @@
+body { font-family: Arial, sans-serif; background-color: #f4f4f4; padding: 20px; }
+.misterio { color: purple; }
+.resaltar { background-color: yellow; }
+.oculto { display: none; }
+.btn { margin: 5px; padding: 8px 12px; background-color: #444; color: white; border: none; cursor: pointer; }
