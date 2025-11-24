@@ -1,0 +1,189 @@
+/* Estilos generales */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  background-color: #0b1020;
+  color: #f0f0f0;
+}
+
+h1,
+h2 {
+  margin: 0;
+}
+
+/* Cabecera */
+
+.cabecera {
+  padding: 1rem 1.5rem;
+  background: #11172b;
+  border-bottom: 1px solid #242b3f;
+}
+
+.cabecera .subtitulo {
+  margin-top: 0.25rem;
+  font-size: 0.9rem;
+  color: #b0b9d0;
+}
+
+/* Layout principal */
+
+.layout {
+  display: flex;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+/* Panel de mandos (izquierda) */
+
+.panel-mandos {
+  flex: 2;
+  background: #151c32;
+  border: 1px solid #242b3f;
+  border-radius: 6px;
+  padding: 1rem;
+  min-width: 0;
+}
+
+.panel-mandos h2 {
+  margin-bottom: 0.75rem;
+}
+
+/* Pantalla de sonar (derecha) */
+
+.panel-sonar {
+  flex: 1.3;
+  background: #151c32;
+  border: 1px solid #242b3f;
+  border-radius: 6px;
+  padding: 1rem;
+  min-width: 0;
+}
+
+.panel-sonar h2 {
+  margin-bottom: 0.75rem;
+}
+
+/* Zona de misiones */
+
+.misiones {
+  margin-top: 1rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid #242b3f;
+}
+
+#texto-mision {
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+/* Controles genéricos */
+
+.control {
+  margin-bottom: 1rem;
+}
+
+.control label,
+.control legend {
+  display: block;
+  margin-bottom: 0.25rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.valor-indicador {
+  display: inline-block;
+  min-width: 2.5rem;
+  margin-left: 0.5rem;
+  text-align: right;
+  font-family: monospace;
+}
+
+/* Botoneras genéricas */
+
+.botonera,
+.botonera-armas,
+.botonera-misiones {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+  flex-wrap: wrap;
+}
+
+/* Sonar */
+
+#sonar {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  background: radial-gradient(circle at center, #1c3045 0, #050710 70%);
+  border-radius: 50%;
+  border: 2px solid #2e4766;
+  overflow: hidden;
+}
+
+/* Barcos: puntos en el sonar */
+
+.barco {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #4ade80; /* verde */
+  box-shadow: 0 0 8px #4ade80;
+}
+
+/* Posiciones de ejemplo (puedes cambiarlas) */
+.barco[data-id="b1"] {
+  top: 20%;
+  left: 65%;
+}
+
+.barco[data-id="b2"] {
+  top: 60%;
+  left: 30%;
+}
+
+.barco[data-id="b3"] {
+  top: 40%;
+  left: 80%;
+}
+
+/* Barco seleccionado (para sesiones de selección/disparo) */
+
+.barco.seleccionado {
+  background: #f97373; /* rojo */
+  box-shadow: 0 0 10px #f97373;
+}
+
+/* Ajustes menores para jQuery UI dentro del tema oscuro */
+
+.ui-widget-content {
+  background: #1a233a;
+  color: #f0f0f0;
+}
+
+.ui-tabs .ui-tabs-nav {
+  padding: 0.2rem 0.2rem 0;
+}
+
+.ui-tabs .ui-tabs-nav li a {
+  font-size: 0.85rem;
+}
+
+.slider-placeholder {
+  margin-top: 0.25rem;
+}
+
+/* Diálogo */
+
+#dialog-mensaje {
+  font-size: 0.95rem;
+}

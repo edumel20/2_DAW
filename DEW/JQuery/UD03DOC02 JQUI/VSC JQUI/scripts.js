@@ -10,11 +10,26 @@ function inicializaComponentes() {
 }
 
 function initDialog() {
-  $j("#dialog").dialog({ autoOpen: false });
+  $j("#dialog").dialog({
+    autoOpen: false,
+    modal: true,
+    buttons: [
+      {
+        text: "Cerrar",
+        click: function () {
+          $j(this).dialog("close");
+        },
+      },
+    ],
+  });
 }
 
 function initButton() {
-  $j("button").button();
+  $j("button")
+    .button()
+    .on("click", function () {
+      $j("#dialog").dialog("open");
+    });
 }
 
 function initTabs() {
