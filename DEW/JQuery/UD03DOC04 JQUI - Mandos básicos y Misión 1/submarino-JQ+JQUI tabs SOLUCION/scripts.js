@@ -13,10 +13,9 @@ $(function () {
   inicializarMision();
 
   // Aquí iréis añadiendo, por sesiones:
-  inicializarControlesNavegacion();
-  inicializarControlesProfundidad();
-  inicializarSilencioso();
-  inicializarControlesSonar();
+  // inicializarControlesNavegacion();
+  // inicializarControlesProfundidad();
+  // inicializarControlesSonar();
   // inicializarControlesArmas();
   // inicializarEventos();
 });
@@ -89,31 +88,14 @@ function mostrarMensaje(titulo, mensaje) {
 
 function inicializarControlesNavegacion() {
   // TODO: slider de velocidad, spinner de rumbo, piloto automático...
-  $("#velocidad-slider").slider({
-    min: 0,
-    max: 50,
-    slide: function (event, ui) {
-      $("#velocidad-valor").text(ui.value);
-    },
-  });
 }
 
 function inicializarControlesProfundidad() {
   // TODO: slider de profundidad, modo silencio...
-  $("#profundidad-slider").slider({
-    min: 0,
-    max: 100,
-    slide: function (event, ui) {
-      $("#profundidad-valor").text(ui.value);
-    },
-  });
 }
 
 function inicializarControlesSonar() {
   // TODO: modo sonar, alcance del sonar, botón Escanear...
-  $("#modo-sonar").selectmenu({
-    open: function (event, ui) {},
-  });
 }
 
 function inicializarControlesArmas() {
@@ -127,12 +109,4 @@ function inicializarEventos() {
   // - Click en "Escanear"
   // - Click en barcos del sonar (seleccionar objetivo)
   // - Click en "Fijar objetivo" y "Disparar"
-}
-
-function inicializarSilencioso() {
-  $("#silencio-check").checkboxradio({
-    classes: {
-      "ui-checkboxradio": "highlight",
-    },
-  });
 }

@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Simulador de Submarino - Prototipo</title>
+
+        <!-- jQuery UI (tema base) -->
+        <link
+            rel="stylesheet"
+            href="./jquery-ui-1.14.1.custom/jquery-ui.css" />
+        <link rel="stylesheet" href="styles.css" />
+    </head>
+    <body>
+        <header class="cabecera">
+            <h1>Simulador de Submarino</h1>
+            <p class="subtitulo">Prototipo inicial para practicar jQuery y
+                jQuery UI</p>
+        </header>
+
+        <main class="layout">
+            <!-- PANTALLA DE SONAR (izquierda) -->
+            <section class="panel-sonar">
+                <h2>Pantalla de sonar</h2>
+                <div id="sonar">
+                    <!-- Barcos de ejemplo (se pueden ocultar por CSS al principio) -->
+                    <div class="barco" data-id="b1"></div>
+                    <div class="barco" data-id="b2"></div>
+                    <div class="barco" data-id="b3"></div>
+                </div>
+            </section>
+
+            <!-- PANEL DE MANDOS (derecha) -->
+            <section class="panel-mandos">
+                <h2>Panel de mandos</h2>
+
+                <!-- TABS PRINCIPALES -->
+                <div id="tabs-mandos">
+                    <ul>
+                        <li><a href="#tab-navegacion">Navegación</a></li>
+                        <li><a href="#tab-profundidad">Profundidad</a></li>
+                        <li><a href="#tab-sonar">Sonar</a></li>
+                        <li><a href="#tab-armas">Armas</a></li>
+                    </ul>
+
+                    <!-- TAB NAVEGACIÓN -->
+                    <div id="tab-navegacion">
+                        <div class="control">
+                            <label for="velocidad-slider">Velocidad
+                                (nudos)</label>
+                            <!-- Aquí irá el slider de jQuery UI -->
+                            <div id="velocidad-slider"
+                                class="slider-placeholder"></div>
+                            <span id="velocidad-valor"
+                                class="valor-indicador">0</span>
+                        </div>
+
+                        <div class="control">
+                            <label for="rumbo-spinner">Rumbo (°)</label>
+                            <!-- Aquí irá el spinner de jQuery UI -->
+                            <input id="rumbo-spinner" type="text" />
+                        </div>
+
+                        <fieldset class="control">
+                            <legend>Piloto automático</legend>
+                            <!-- Se convertirá a checkboxradio de jQuery UI -->
+                            <label for="piloto-on">
+                                <input
+                                    type="radio"
+                                    name="piloto"
+                                    id="piloto-on"
+                                    value="on" />
+                                ON
+                            </label>
+                            <label for="piloto-off">
+                                <input
+                                    type="radio"
+                                    name="piloto"
+                                    id="piloto-off"
+                                    value="off"
+                                    checked />
+                                OFF
+                            </label>
+                        </fieldset>
+                    </div>
+
+                    <!-- TAB PROFUNDIDAD -->
+                    <div id="tab-profundidad">
+                        <div class="control">
+                            <label for="profundidad-slider">Profundidad
+                                (m)</label>
+                            <!-- Aquí irá el slider de jQuery UI -->
+                            <div id="profundidad-slider"
+                                class="slider-placeholder"></div>
+                            <span id="profundidad-valor"
+                                class="valor-indicador">0</span>
+                        </div>
+
+                        <fieldset class="control">
+                            <legend>Modo silencio</legend>
+                            <!-- Se convertirá a checkboxradio de jQuery UI -->
+                            <label for="silencio-check">
+                                <input type="checkbox" id="silencio-check" />
+                                Activar modo silencio
+                            </label>
+                        </fieldset>
+                    </div>
+
+                    <!-- TAB SONAR -->
+                    <div id="tab-sonar">
+                        <div class="control">
+                            <label for="modo-sonar">Modo de sonar</label>
+                            <!-- Se convertirá a selectmenu de jQuery UI -->
+                            <select id="modo-sonar">
+                                <option value="off">Apagado</option>
+                                <option value="pasivo">Pasivo</option>
+                                <option value="activo">Activo</option>
+                            </select>
+                        </div>
+
+                        <div class="control">
+                            <label for="alcance-sonar-slider">Alcance del
+                                sonar</label>
+                            <!-- Aquí irá el slider de jQuery UI -->
+                            <div
+                                id="alcance-sonar-slider"
+                                class="slider-placeholder"></div>
+                            <span id="alcance-sonar-valor"
+                                class="valor-indicador">0</span>
+                        </div>
+
+                        <div class="botonera">
+                            <button id="btn-escanear">Escanear</button>
+                        </div>
+                    </div>
+
+                    <!-- TAB ARMAS -->
+                    <div id="tab-armas">
+                        <div class="control">
+                            <label for="torpedos-spinner">Torpedos
+                                listos</label>
+                            <!-- Se convertirá a spinner de jQuery UI -->
+                            <input id="torpedos-spinner" type="text" />
+                        </div>
+
+                        <div class="control">
+                            <label for="tipo-torpedo">Tipo de torpedo</label>
+                            <!-- Se convertirá a selectmenu de jQuery UI -->
+                            <select id="tipo-torpedo">
+                                <option value="estandar">Estándar</option>
+                                <option value="silencioso">Silencioso</option>
+                                <option value="pesado">Pesado</option>
+                            </select>
+                        </div>
+
+                        <div class="botonera">
+                            <button id="btn-fijar-objetivo">Fijar
+                                objetivo</button>
+                            <button id="btn-disparar">Disparar</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- MISIONES -->
+                <section class="misiones">
+                    <h2>Misión actual</h2>
+                    <p id="texto-mision">
+                        Misión 1: Configura el submarino en modo patrulla
+                        silenciosa
+                        (velocidad moderada, profundidad segura, modo silencio
+                        activado,
+                        sonar en modo pasivo).
+                    </p>
+
+                    <div class="botonera">
+                        <button id="btn-verificar-mision">Verificar
+                            misión</button>
+                        <button id="btn-reiniciar">Reiniciar
+                            configuraciones</button>
+                    </div>
+                </section>
+            </section>
+
+        </main>
+
+        <!-- DIÁLOGO GENÉRICO PARA MENSAJES -->
+        <div id="dialog-mensaje" title="Mensaje" style="display: none;">
+            <p id="dialog-texto">
+                Aquí aparecerán los mensajes de misión, errores, etc.
+            </p>
+        </div>
+
+        <!-- jQuery + jQuery UI + tu script -->
+        <script
+            src="./jquery-ui-1.14.1.custom/external/jquery/jquery.js"></script>
+        <script
+            src="./jquery-ui-1.14.1.custom/jquery-ui.js"></script>
+        <script src="/scripts.js"></script>
+    </body>
+</html>
