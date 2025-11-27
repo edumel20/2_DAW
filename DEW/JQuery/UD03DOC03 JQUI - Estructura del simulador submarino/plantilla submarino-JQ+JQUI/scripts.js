@@ -17,6 +17,7 @@ $(function () {
   inicializarControlesProfundidad();
   inicializarSilencioso();
   inicializarControlesSonar();
+  inicializarMision();
   // inicializarControlesArmas();
   // inicializarEventos();
 });
@@ -62,6 +63,25 @@ Misión 1: Configura el submarino en modo patrulla silenciosa.
 - Sonar en modo pasivo.
 `;
   $("#texto-mision").text(textoMision.trim());
+  $("#btn-verificar-mision")
+    .button()
+    .on("click", function () {
+      const $velocidad = $("#velocidad-slider").slider("value");
+      const $profundidad = $("#profundidad").slider("value");
+      const $silencio = $("#silencio-check").prop("checked");
+      const $sonar = $("#modo-sonar option:selected").text();
+
+      if (
+        $velocidad >= 8 &&
+        $velocidad <= 15 &&
+        $profundidad >= 200 &&
+        $profundidad <= 300
+      ) {
+        mostrarMensaje("Mision", "SUPERADA");
+      } else {
+        mostrarMensaje("Mision", "NO SUPERADA");
+      }
+    }); /**boton iniciar mision */
 }
 
 /**
