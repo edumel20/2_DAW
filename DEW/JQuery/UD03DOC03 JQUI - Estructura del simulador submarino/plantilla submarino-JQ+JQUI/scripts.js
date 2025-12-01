@@ -148,7 +148,7 @@ function inicializarEventos() {
   // - Click en "Reiniciar"
   // - Click en "Escanear"
   // - Click en barcos del sonar (seleccionar objetivo)
-  $("#sonar").on("click", "barco", function (e) {
+  $("#sonar").on("click", ".barco", function (e) {
     // Limpio barcos seleccionados anteriormente
     $("#sonar .barco").removeClass("barco-seleccionado");
 

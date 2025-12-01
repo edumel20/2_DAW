@@ -158,7 +158,7 @@ h2 {
 
 /* Barco seleccionado (para sesiones de selección/disparo) */
 
-.barco.seleccionado {
+.barco-seleccionado {
   background: #f97373; /* rojo */
   box-shadow: 0 0 10px #f97373;
 }
