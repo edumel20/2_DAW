@@ -1,5 +1,7 @@
 "use strict";
 
+/** ESTE ES EL SCRIPT BUENO */
+
 /**
  * Punto de entrada principal.
  * Aquí solo se inicializan cosas básicas.
@@ -19,7 +21,7 @@ $(function () {
   inicializarControlesSonar();
   inicializarMision();
   // inicializarControlesArmas();
-  // inicializarEventos();
+  inicializarEventos();
 });
 
 /* -----------------------------
@@ -146,6 +148,20 @@ function inicializarEventos() {
   // - Click en "Reiniciar"
   // - Click en "Escanear"
   // - Click en barcos del sonar (seleccionar objetivo)
+  $("#sonar").on("click", "barco", function (e) {
+    // Limpio barcos seleccionados anteriormente
+    $("#sonar .barco").removeClass("barco-seleccionado");
+
+    const barco = $(this);
+    barco.addClass("barco-seleccionado");
+    const barcoID = barco.data("id");
+    const position = barco.position();
+    const x = position.left;
+    const y = position.top;
+
+    console.log(`barco id: ${barcoID}, X=${x}, Y=${y}`);
+  });
+
   // - Click en "Fijar objetivo" y "Disparar"
 }
 
