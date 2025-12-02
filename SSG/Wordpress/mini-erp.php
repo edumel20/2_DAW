@@ -30,7 +30,7 @@ function mini_erp_render()
 
         <label>Email</label>
         <input type="email" name="email" required>
-
+        <br>
         <input type="submit" name="guardar" value="Guardar">
     </form>
 
@@ -56,7 +56,7 @@ function mini_erp_render()
 
         <label>Email</label>
         <input type="email" name="email">
-
+        <br>
         <input type="submit" name="guardar2" value="Guardar">
     </form>
 
@@ -91,7 +91,27 @@ function mini_erp_render()
     <div style="background:#fff; padding:20px; border:1px solid #ddd; margin-top:20px;">
         <h2>Actividad 3</h2>
         <?php
-        // Aquí va la actividad 3
+        $productos = array(
+            array('codigo' => 'A01', 'nombre' => 'Camiseta',   'precio' => 12.99),
+            array('codigo' => 'A02', 'nombre' => 'Pantalón',   'precio' => 19.99),
+            array('codigo' => 'A03', 'nombre' => 'Chaqueta',   'precio' => 39.99)
+        );
+        
+        echo "<table border='1'>";
+        echo "<tr><th>Código</th><th>Nombre</th><th>Precio</th></tr>";
+        
+        // Extrae solo el valor, no la clave y hazlo en una variable llamada $p
+        foreach ($productos as $index => $p) {
+    
+            // No te olvides de escapar la salida
+            echo "<tr>
+                    <td>" . $p['codigo'] . "</td>
+                    <td>" . $p['nombre'] . "</td>
+                    <td>" . $p['precio'] . " €</td>
+                  </tr>";
+        }
+        
+        echo "</table>";
         ?>
     </div>
 
@@ -102,8 +122,27 @@ function mini_erp_render()
     <div style="background:#fff; padding:20px; border:1px solid #ddd; margin-top:20px;">
         <h2>Actividad 4</h2>
         <?php
-        // Aquí va la actividad 2
-        ?>
+        if (isset($_POST['enviar'])) {
+
+    // COMPLETA EL CONDICIONAL
+        if (empty($_POST['producto'])) {
+
+        echo "<p style='color:red'>El nombre del producto es obligatorio</p>";
+
+        } else {
+
+        echo "<p>Producto registrado: " . sanitize_text_field($_POST['producto']) . "</p>";
+
+        }
+    }
+    ?>
+
+    <form method="post">
+        <label>Producto</label>
+        <input type="text" name="producto">
+
+        <input type="submit" name="enviar" value="Enviar">
+    </form>
     </div>
 
 
@@ -112,9 +151,32 @@ function mini_erp_render()
     <!----------------->
     <div style="background:#fff; padding:20px; border:1px solid #ddd; margin-top:20px;">
         <h2>Actividad 5</h2>
+        <form method="post">
+
+        <label>Precio</label>
+        <input type="number" step="0.01" name="precio">
+    
+        <label>Cantidad</label>
+        <input type="number" name="cantidad">
+    
+        <input type="submit" name="calcular" value="Calcular total">
+    
+        </form>
+
         <?php
-        // Aquí va la actividad 2
-        ?>
+        if (isset($_POST['calcular'])) {
+    
+        // COMPLETA AQUÍ CON LAS FUNCIONES DE CONVERSIÓN
+        $precio  = floatval($_POST['precio']);
+        $cantidad = intval($_POST['cantidad']);
+    
+        // COMPLETA AQUÍ LA OPERACIÓN
+        $total = $precio * $cantidad;
+    
+        echo "<p>Total: $total €</p>";
+    }
+    
+    ?>
     </div>
 
 
@@ -122,9 +184,27 @@ function mini_erp_render()
     <!----------------->
     <div style="background:#fff; padding:20px; border:1px solid #ddd; margin-top:20px;">
         <h2>Actividad 6</h2>
-        <?php
-        // Aquí va la actividad 2
-        ?>
+        <form method="post">
+
+        <label>Precio sin IGIC</label>
+        <input type="number" name="precio" step="0.1">
+
+        <input type="submit" name="calcular_igic" value="Calcular IGIC">
+
+        </form>
+
+    <?php
+    if (isset($_POST['calcular_igic'])) {
+
+    // CONVIERTE A DECIMAL
+    $precio = floatval($_POST['precio']);
+
+    // CALCULA EL PRECIO FINAL
+    $precio_final = $precio + ($precio * $igic);
+
+    echo "<p>Precio final con IVA: $precio_final €</p>";
+}
+?>
     </div>
 
 
@@ -132,9 +212,23 @@ function mini_erp_render()
     <!----------------->
     <div style="background:#fff; padding:20px; border:1px solid #ddd; margin-top:20px;">
         <h2>Actividad 7</h2>
+        <form method="post">
+
+            <label>Producto</label>
+            <input type="text" name="nombre">
+
+            <label>Precio</label>
+            <input type="number" name="precio" step="0.01">
+
+            <input type="submit" name="guardar_producto" value="Guardar">
+
+            </form>
+
         <?php
         // Aquí va la actividad 2
         ?>
+    
+
     </div>
 
 
