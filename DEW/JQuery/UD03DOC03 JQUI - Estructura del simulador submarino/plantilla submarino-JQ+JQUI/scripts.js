@@ -140,6 +140,12 @@ function inicializarControlesSonar() {
 
 function inicializarControlesArmas() {
   // TODO: torpedos, tipo de torpedo, botones fijar objetivo / disparar...
+  const btnFijarObjetivo = $("#btn-fijar-objetivo").button();
+  btnFijarObjetivo.on("click", function () {
+    const $barco = $("#sonar").find(".barco");
+
+    mostrarMensaje("Objetivo seleccionado", $barco.data("id"));
+  });
 }
 
 function inicializarEventos() {
