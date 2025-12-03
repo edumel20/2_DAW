@@ -14,13 +14,12 @@ $(function () {
   // Gancho para texto inicial de misión
   inicializarMision();
 
-  // Aquí iréis añadiendo, por sesiones:
+  // Inicialización de controles
   inicializarControlesNavegacion();
   inicializarControlesProfundidad();
   inicializarSilencioso();
   inicializarControlesSonar();
-  inicializarMision();
-  // inicializarControlesArmas();
+  inicializarControlesArmas();
   inicializarEventos();
 });
 
@@ -28,18 +27,10 @@ $(function () {
  * INICIALIZACIÓN BÁSICA
  * ---------------------------*/
 
-/**
- * Convierte el panel de mandos en pestañas de jQuery UI.
- * (Sesión 3)
- */
 function inicializarTabs() {
   $("#tabs-mandos").tabs();
 }
 
-/**
- * Diálogo genérico para mostrar mensajes.
- * (Se usa desde cualquier parte del juego).
- */
 function inicializarDialogo() {
   $("#dialog-mensaje").dialog({
     autoOpen: false,
@@ -52,10 +43,6 @@ function inicializarDialogo() {
   });
 }
 
-/**
- * Texto inicial de la misión.
- * Aquí podréis cambiar el contenido según la misión activa.
- */
 function inicializarMision() {
   const textoMision = `
 Misión 1: Configura el submarino en modo patrulla silenciosa.
@@ -69,7 +56,7 @@ Misión 1: Configura el submarino en modo patrulla silenciosa.
     .button()
     .on("click", function () {
       const $velocidad = $("#velocidad-slider").slider("value");
-      const $profundidad = $("#profundidad").slider("value");
+      const $profundidad = $("#profundidad-slider").slider("value");
       const $silencio = $("#silencio-check").prop("checked");
       const $sonar = $("#modo-sonar option:selected").text();
 
@@ -77,22 +64,17 @@ Misión 1: Configura el submarino en modo patrulla silenciosa.
         $velocidad >= 8 &&
         $velocidad <= 15 &&
         $profundidad >= 200 &&
-        $profundidad <= 300
+        $profundidad <= 300 &&
+        $silencio &&
+        $sonar === "pasivo"
       ) {
-        mostrarMensaje("Mision", "SUPERADA");
+        mostrarMensaje("Misión", "SUPERADA");
       } else {
-        mostrarMensaje("Mision", "NO SUPERADA");
+        mostrarMensaje("Misión", "NO SUPERADA");
       }
-    }); /**boton iniciar mision */
+    });
 }
 
-/**
- * Función auxiliar para mostrar mensajes en el diálogo.
- * La usaréis en:
- * - Verificar misión 1
- * - Verificar misión 2
- * - Errores (sin objetivo seleccionado, etc.)
- */
 function mostrarMensaje(titulo, mensaje) {
   $("#dialog-mensaje").dialog("option", "title", titulo);
   $("#dialog-texto").text(mensaje);
@@ -100,17 +82,10 @@ function mostrarMensaje(titulo, mensaje) {
 }
 
 /* -----------------------------
- * PUNTOS DE EXTENSIÓN (TODO)
+ * INICIALIZACIÓN DE CONTROLES
  * ---------------------------*/
 
-/**
- * Ejemplo de funciones que irán rellenando los alumnos
- * en sesiones posteriores. De momento están vacías,
- * solo como guía visual para estructurar el código.
- */
-
 function inicializarControlesNavegacion() {
-  // TODO: slider de velocidad, spinner de rumbo, piloto automático...
   $("#velocidad-slider").slider({
     min: 0,
     max: 50,
@@ -118,13 +93,22 @@ function inicializarControlesNavegacion() {
       $("#velocidad-valor").text(ui.value);
     },
   });
+
+  $("#rumbo-spinner").spinner({
+    min: 0,
+    max: 360,
+    spin: function (event, ui) {
+      $(this).val(ui.value);
+    },
+  });
+
+  $("input[name='piloto']").checkboxradio();
 }
 
 function inicializarControlesProfundidad() {
-  // TODO: slider de profundidad, modo silencio...
   $("#profundidad-slider").slider({
     min: 0,
-    max: 100,
+    max: 1000,
     slide: function (event, ui) {
       $("#profundidad-valor").text(ui.value);
     },
@@ -132,30 +116,68 @@ function inicializarControlesProfundidad() {
 }
 
 function inicializarControlesSonar() {
-  // TODO: modo sonar, alcance del sonar, botón Escanear...
-  $("#modo-sonar").selectmenu({
-    open: function (event, ui) {},
+  $("#modo-sonar").selectmenu();
+
+  $("#alcance-sonar-slider").slider({
+    min: 0,
+    max: 1000,
+    slide: function (event, ui) {
+      $("#alcance-sonar-valor").text(ui.value);
+    },
   });
+
+  $("#btn-escanear")
+    .button()
+    .on("click", function () {
+      const modoSonar = $("#modo-sonar option:selected").text();
+      const alcance = $("#alcance-sonar-slider").slider("value");
+      mostrarMensaje("Escaneo", `Modo: ${modoSonar}, Alcance: ${alcance} m`);
+    });
 }
 
 function inicializarControlesArmas() {
-  // TODO: torpedos, tipo de torpedo, botones fijar objetivo / disparar...
-  const btnFijarObjetivo = $("#btn-fijar-objetivo").button();
-  btnFijarObjetivo.on("click", function () {
-    const $barco = $("#sonar").find(".barco");
-
-    mostrarMensaje("Objetivo seleccionado", $barco.data("id"));
+  $("#torpedos-spinner").spinner({
+    min: 0,
+    max: 20,
+    spin: function (event, ui) {
+      $(this).val(ui.value);
+    },
   });
+
+  $("#btn-fijar-objetivo")
+    .button()
+    .on("click", function () {
+      const barcoSeleccionado = $("#sonar .barco-seleccionado").data("id");
+      if (barcoSeleccionado) {
+        mostrarMensaje(
+          "Objetivo seleccionado",
+          `Objetivo: ${barcoSeleccionado}`
+        );
+      } else {
+        mostrarMensaje("Error", "No se ha seleccionado ningún objetivo.");
+      }
+    });
+
+  $("#btn-disparar")
+    .button()
+    .on("click", function () {
+      const torpedosListos = $("#torpedos-spinner").val();
+      if (torpedosListos > 0) {
+        mostrarMensaje("Disparo", "¡Torpedo disparado!");
+        $("#torpedos-spinner").val(torpedosListos - 1);
+      } else {
+        mostrarMensaje("Error", "No hay torpedos disponibles.");
+      }
+    });
 }
 
+/* -----------------------------
+ * INICIALIZAR EVENTOS
+ * ---------------------------*/
+
 function inicializarEventos() {
-  // TODO:
-  // - Click en "Verificar misión"
-  // - Click en "Reiniciar"
-  // - Click en "Escanear"
-  // - Click en barcos del sonar (seleccionar objetivo)
-  $("#sonar").on("click", ".barco", function (e) {
-    // Limpio barcos seleccionados anteriormente
+  $("#sonar").on("click", ".barco", function () {
+    // Limpiar barcos seleccionados anteriormente
     $("#sonar .barco").removeClass("barco-seleccionado");
 
     const barco = $(this);
@@ -165,16 +187,38 @@ function inicializarEventos() {
     const x = position.left;
     const y = position.top;
 
-    console.log(`barco id: ${barcoID}, X=${x}, Y=${y}`);
+    console.log(`Barco ID: ${barcoID}, X=${x}, Y=${y}`);
+    mostrarMensaje(
+      "Objetivo Seleccionado",
+      `Barco ID: ${barcoID} seleccionado.`
+    );
   });
 
-  // - Click en "Fijar objetivo" y "Disparar"
+  $("#btn-reiniciar")
+    .button()
+    .on("click", function () {
+      $("#velocidad-slider").slider("value", 0);
+      $("#profundidad-slider").slider("value", 0);
+      $("#silencio-check").prop("checked", false).checkboxradio("refresh");
+      $("#modo-sonar").val("off").selectmenu("refresh");
+      $("#alcance-sonar-slider").slider("value", 0);
+      $("#torpedos-spinner").spinner("value", 0);
+      mostrarMensaje(
+        "Reiniciar",
+        "Todas las configuraciones han sido reiniciadas."
+      );
+    });
 }
 
 function inicializarSilencioso() {
   $("#silencio-check").checkboxradio({
     classes: {
       "ui-checkboxradio": "highlight",
+    },
+    change: function () {
+      const activado = $(this).is(":checked");
+      const estado = activado ? "activado" : "desactivado";
+      mostrarMensaje("Modo Silencio", `Modo silencio ${estado}.`);
     },
   });
 }
