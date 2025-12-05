@@ -1,0 +1,15 @@
+h1 {
+    text-align: center;
+}
+
+.green {
+    background-color: rgb(37, 247, 37);
+}
+
+.red {
+    background-color: red;
+}
+
+.pink {
+    background-color: rgb(192, 31, 139);
+}

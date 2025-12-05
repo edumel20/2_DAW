@@ -6,8 +6,22 @@
 const URL_PRODUCTOS = "http://10.103.255.0:3000/productos";
 async function cargarProductos(URL_PRODUCTOS) {
   try {
-  } catch (err) {}
+    const resp = await fetch(URL_PRODUCTOS);
+    if (!resp.ok){
+      throw new Error(`Error ${resp.status}: ${resp.statusText}`);
+    }
+    const productos = await resp.json();
+    return productos;
+
+  } catch (err) {
+    const estadoElement = document.getElementById('estado');
+    estadoElement.textContent = `Error al cargar productos: ${err.message}`;
+    estadoElement.className = 'status error';
+    alert(`Error al cargar productos: ${err.message}`);
+    throw err;
+  }
 }
+ 
 
 // Render lista productos (F)
 function renderProductos(productos, $destino) {}
