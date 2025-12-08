@@ -1,0 +1,44 @@
+.box {
+    padding: 40px 20px;
+    color: white;
+    font-size: 50px;
+    text-align: center;
+}
+
+.a { 
+    background: #f2de00; 
+}
+
+.b { 
+    background: #53bff2; 
+}
+        
+.c { 
+    background: #e9359f; 
+}
+        
+.d { 
+    background: #f2b544; 
+}
+        
+.e { 
+    background: #f26262; 
+}
+        
+.f { 
+    background: #42eacb;
+}
+        
+.g { 
+    background: #9beb4c;
+}
+        
+.h { 
+    background: #e09ae6;
+}
+
+
+.small-box {
+    min-height: 22vh;
+}
+

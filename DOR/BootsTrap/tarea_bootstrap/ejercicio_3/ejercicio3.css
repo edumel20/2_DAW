@@ -1,0 +1,37 @@
+
+.box {
+padding: 60px 30px;
+color: white;
+font-size: 60px;
+text-align: center;
+}
+
+.a { 
+    background: #f2de00; 
+}
+        
+.b { 
+    background: #42eacb;
+    min-height: 30vh; 
+}
+
+.c { 
+    background: #3bb8f2; 
+}
+        
+.d { 
+    background: #e9359f; 
+}
+
+.e { 
+    background: #f2b544; 
+}
+
+.f { 
+    background: #e09ae6;
+    min-height: 60vh; 
+}
+
+.c, .d, .e { 
+    min-height: 25vh; 
+}

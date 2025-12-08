@@ -1,0 +1,23 @@
+body {
+    background: #fafafa;
+}
+
+.box {
+    padding: 60px 30px;
+    color: white;
+    font-size: 60px;
+    text-align: center;
+}
+
+.a { 
+    background: #f2de00; 
+}
+
+.b {
+     background: #42eacb; 
+}
+
+.c { 
+    background: #e09ae6; 
+}
+
