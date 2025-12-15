@@ -2,6 +2,9 @@
     font-family: 'Montserrat', sans-serif;
 }
 
+h2 {
+    font-weight: bolder;
+}
 
 .navbar {
     background-color: #000000 !important;
@@ -32,7 +35,7 @@
 
 
 .flex-column {
-    margin-top: 3%;
+    margin-top: 2%;
 }
 
 .navbar,
@@ -46,3 +49,15 @@
     content: ">";
     color: #6c757d;
 }
+
+
+.text-bg-primary {
+    text-align: right;
+}
+
+.container-fluid-poblacion {
+    padding-left: 30%;
+    padding-right: 8%;
+}
+
+/* Mirar el ancho de 'prov-tnf' */
