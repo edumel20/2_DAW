@@ -7,6 +7,8 @@
         <RouterLink to="/" class="link" active-class="active">Home</RouterLink>
         <RouterLink to="/login" class="link" active-class="active">Login</RouterLink>
         <RouterLink to="/register" class="link" active-class="active">Register</RouterLink>
+        <RouterLink to="/carrito" class="link" active-class="active">Carrito</RouterLink>
+
       </nav>
     </header>
 
