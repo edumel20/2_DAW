@@ -60,4 +60,13 @@ h2 {
     padding-right: 8%;
 }
 
-/* Mirar el ancho de 'prov-tnf' */
+.button-group {
+    border-color: #000000 ;
+}
+
+.contact-form {
+    padding-top: 1%;
+    padding-left: 7%;
+    padding-right: 7%;
+}
+
