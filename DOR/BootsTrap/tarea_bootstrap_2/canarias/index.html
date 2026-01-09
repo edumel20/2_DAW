@@ -30,6 +30,18 @@
         <li class="nav-item">
           <a class="nav-link" href="contacto.html">Contáctanos</a>
         </li>
+        <li class="nav-item">
+          <span class="nav-link"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="yellow" class="bi bi-exclamation-triangle-fill" viewBox="0 0 16 16">
+            <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5m.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2"/>
+          </svg></span>
+        </li>
+        <li class="nav-item">
+          <span class="nav-link">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="red" class="bi bi-exclamation-circle-fill" viewBox="0 0 16 16">
+              <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8 4a.905.905 0 0 0-.9.995l.35 3.507a.552.552 0 0 0 1.1 0l.35-3.507A.905.905 0 0 0 8 4m.002 6a1 1 0 1 0 0 2 1 1 0 0 0 0-2"/>
+            </svg>
+          </span>
+        </li>
       </ul>
       <form class="d-flex" role="search">
         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
@@ -46,18 +58,164 @@
         </ol>
     </div>
 </nav>
-    <ul class="nav flex-column">
-  <li class="nav-item">
-    <a class="nav-link" aria-current="page" href="#">Población</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="#">Menú</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="#">Precios</a>
-  </li>
-</ul>
+<div class="container-fluid mt-4">
+  <div class="row">
 
+    <!-- NAV LATERAL -->
+    <aside class="col-md-2 mb-4">
+      <nav class="nav flex-column">
+        <a class="nav-link" href="#poblacion">Población</a>
+        <a class="nav-link" href="#menu">Menú</a>
+        <a class="nav-link" href="#precios">Precios</a>
+      </nav>
+    </aside>
+
+    <!-- MAIN -->
+    <main class="col-md-10">
+
+      <!-- POBLACIÓN -->
+      <section id="poblacion" class="mb-5">
+        <h2>Población por provincias</h2>
+
+        <div class="row mt-3">
+          <div class="col-md-6">
+            <h4>Santa Cruz de Tenerife</h4>
+            <div class="list-group">
+              <a class="list-group-item list-group-item-action d-flex justify-content-between">
+                Tenerife <span class="badge bg-primary">966.354</span>
+              </a>
+              <a class="list-group-item list-group-item-action d-flex justify-content-between">
+                La Gomera <span class="badge bg-primary">22.426</span>
+              </a>
+              <a class="list-group-item list-group-item-action d-flex justify-content-between">
+                El Hierro <span class="badge bg-primary">11.338</span>
+              </a>
+              <a class="list-group-item list-group-item-action d-flex justify-content-between">
+                La Palma <span class="badge bg-primary">85.840</span>
+              </a>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <h4>Las Palmas</h4>
+            <div class="btn-group-vertical w-100">
+              <button class="btn btn-outline-info d-flex justify-content-between">
+                Gran Canaria <span class="badge bg-info rounded-pill">870.595</span>
+              </button>
+              <button class="btn btn-outline-info d-flex justify-content-between">
+                Lanzarote <span class="badge bg-info rounded-pill">154.530</span>
+              </button>
+              <button class="btn btn-outline-info d-flex justify-content-between">
+                Fuerteventura <span class="badge bg-info rounded-pill">126.227</span>
+              </button>
+              <button class="btn btn-outline-info d-flex justify-content-between">
+                La Graciosa <span class="badge bg-info rounded-pill">734</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="menu" class="mb-5">
+        <h2>Gastronomía</h2>
+        <h4>Menú</h4>
+
+        <div class="row mt-3">
+          <div class="col-md-4">
+            <h5>Primeros</h5>
+            <ul class="list-group">
+              <li class="list-group-item">Ensalada Tropical</li>
+              <li class="list-group-item">Escaldón</li>
+              <li class="list-group-item">Queso Asado</li>
+              <li class="list-group-item">Croquetas</li>
+            </ul>
+          </div>
+
+          <div class="col-md-4">
+            <h5>Segundos</h5>
+            <ul class="list-group list-group-flush bg-primary-subtle" style="border-top: 10%;">
+              <li class="list-group-item bg-primary-subtle">Carne Fiesta</li>
+              <li class="list-group-item bg-primary-subtle">Pollo Asado</li>
+              <li class="list-group-item bg-primary-subtle">Garbanzas</li>
+              <li class="list-group-item bg-primary-subtle">Potaje de Berros</li>
+            </ul>
+          </div>
+
+          <div class="col-md-4">
+            <h5>Postres</h5>
+            <ul class="list-group list-group-flush bg-warning-subtle">
+              <li class="list-group-item bg-warning-subtle">Polvito Uruguayo</li>
+              <li class="list-group-item bg-warning-subtle">Príncipe Alberto</li>
+              <li class="list-group-item bg-warning-subtle">Frangoyo</li>
+              <li class="list-group-item bg-warning-subtle">Quesillo</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="precios">
+        <h2>Precios</h2>
+
+        <table class="table">
+          <thead>
+            <tr class="table table-dark">
+              <th>#</th>
+              <th>Primeros</th>
+              <th>Ingredientes</th>
+              <th>Precio</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>1</td><td>Ensalada tropical</td><td>Lechuga, mango, papaya</td><td>7€</td></tr>
+            <tr><td>2</td><td>Escaldón</td><td>Gofio</td><td>4€</td></tr>
+            <tr><td>3</td><td>Queso Asado</td><td>Leche de Cabra</td><td>5€</td></tr>
+            <tr><td>4</td><td>Croquetas</td><td>Pollo, cherne, queso azul</td><td>6€</td></tr>
+
+
+          </tbody>
+        </table>
+
+        <table class="table table-striped table-primary">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Segundos</th>
+              <th>Ingredientes</th>
+              <th>Precio</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>1</td><td>Carne Fiesta</td><td>Cochino negro</td><td>7.5€</td></tr>
+            <tr><td>2</td><td>Pollo asado</td><td>Pollo de corral</td><td>5.5€</td></tr>
+            <tr><td>3</td><td>Garbanzas</td><td>Garbanzos, carne de cochino</td><td>4€</td></tr>
+            <tr><td>4</td><td>Potaje de Berros</td><td>Berros, papas, bubango</td><td>5€</td></tr>
+
+
+          </tbody>
+        </table>
+
+        <table class="table table-warning table-striped table-hover table-bordered">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Postres</th>
+              <th>Ingredientes</th>
+              <th>Precio</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>1</td><td>Polvito Uruguayo</td><td>Dulce de leche</td><td>3.5€</td></tr>
+            <tr><td>2</td><td>Príncipe Alberto</td><td>Huevo, Leche y Almendras</td><td>3€</td></tr>
+            <tr><td>2</td><td>Frangoyo</td><td>Huevo, Leche y Caramelo</td><td>2.75€</td></tr>
+            <tr><td>4</td><td>Quesillo</td><td>Leche, huevos, azúcar</td><td>3€</td></tr>
+
+          </tbody>
+        </table>
+      </section>
+
+    </main>
+  </div>
+</div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
