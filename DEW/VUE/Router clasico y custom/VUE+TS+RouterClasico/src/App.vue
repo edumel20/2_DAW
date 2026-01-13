@@ -15,10 +15,13 @@
     <main class="content">
       <RouterView />
     </main>
+    <div><HijoComponente :alumno="{ nombre: 'Ana', curso: '1DAW'}"/></div>
   </div>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import HijoComponente from './components/HijoComponente.vue';
+</script>
 
 <style scoped>
 .nav {
