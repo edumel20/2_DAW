@@ -8,11 +8,8 @@
             <RouterLink to="/habilidades" class="link" active-class="active">Habilidades</RouterLink>
             <RouterLink to="/experiencia" class="link" active-class="active">Experiencia</RouterLink>
             <RouterLink to="/contacto" class="link" active-class="active">Contacto</RouterLink>
-
           </nav>
       </header>
-      <h2>Home</h2>
-      <p>Bienvenido al Portfolio de Eduardo</p>
     </div>
 </template>
 
