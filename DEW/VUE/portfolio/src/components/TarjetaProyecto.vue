@@ -13,7 +13,6 @@
 </template>
 
 <script setup lang="ts">
-// Interface para la estructura del proyecto
 interface Proyecto {
   id: number;
   titulo: string;
@@ -22,12 +21,10 @@ interface Proyecto {
   imagen: string;
 }
 
-// Definir las props del componente
 interface Props {
   proyecto: Proyecto;
 }
 
-// Usar la interface para tipar las props
 defineProps<Props>();
 </script>
 

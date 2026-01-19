@@ -5,7 +5,7 @@
         <h1 class="brand">
           <RouterLink to="/" class="brand-link">
             <i class="pi pi-code"></i>
-            Portfolio
+            Eduardo
           </RouterLink>
         </h1>
         <nav class="nav-links">
