@@ -1,0 +1,136 @@
+{
+  "sobreMi": {
+    "nombre": "Eduardo",
+    "titulo": "Desarrollador Web Full Stack",
+    "foto": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face",
+    "bio": "¡Hola! Soy Eduardo, un apasionado desarrollador web con experiencia en tecnologías modernas como Vue.js, TypeScript y desarrollo backend. Me encanta crear aplicaciones web intuitivas y eficientes que resuelvan problemas reales. Siempre estoy aprendiendo nuevas tecnologías y mejorando mis habilidades para ofrecer soluciones de calidad."
+  },
+  "proyectos": [
+    {
+      "id": 1,
+      "titulo": "E-commerce App",
+      "descripcion": "Tienda online completa con Vue 3, TypeScript y Node.js. Incluye gestión de productos, carrito de compras y pasarela de pagos.",
+      "enlace": "https://github.com/eduardo/ecommerce",
+      "imagen": "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=500&h=300&fit=crop"
+    },
+    {
+      "id": 2,
+      "titulo": "Dashboard Admin",
+      "descripcion": "Panel de administración con Vue 3, PrimeVue y Charts. Gestión de usuarios, estadísticas y reportes.",
+      "enlace": "https://github.com/eduardo/dashboard",
+      "imagen": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=500&h=300&fit=crop"
+    },
+    {
+      "id": 3,
+      "titulo": "Blog Personal",
+      "descripcion": "Blog desarrollado con Vue 3 y API REST en Node.js. Sistema de comentarios, autenticación y panel de administración.",
+      "enlace": "https://github.com/eduardo/blog",
+      "imagen": "https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=500&h=300&fit=crop"
+    },
+    {
+      "id": 4,
+      "titulo": "Task Manager",
+      "descripcion": "Aplicación de gestión de tareas con Vue 3, Pinia y Firebase. Organiza tus proyectos con tableros colaborativos.",
+      "enlace": "https://github.com/eduardo/taskmanager",
+      "imagen": "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=500&h=300&fit=crop"
+    }
+  ],
+  "habilidades": [
+    {
+      "id": 1,
+      "nombre": "Vue.js",
+      "logo": "https://upload.wikimedia.org/wikipedia/commons/9/95/Vue.js_Logo_2.svg",
+      "descripcion": "Desarrollo de aplicaciones SPA con Vue 3, Composition API y Vue Router",
+      "nivel": 90,
+      "categoria": "Frontend"
+    },
+    {
+      "id": 2,
+      "nombre": "TypeScript",
+      "logo": "https://upload.wikimedia.org/wikipedia/commons/4/4c/Typescript_logo_2020.svg",
+      "descripcion": "Desarrollo tipado con TypeScript para proyectos Vue y Node.js",
+      "nivel": 85,
+      "categoria": "Frontend"
+    },
+    {
+      "id": 3,
+      "nombre": "Node.js",
+      "logo": "https://upload.wikimedia.org/wikipedia/commons/d/d9/Node.js_logo.svg",
+      "descripcion": "Desarrollo de APIs REST con Express y frameworks modernos",
+      "nivel": 80,
+      "categoria": "Backend"
+    },
+    {
+      "id": 4,
+      "nombre": "HTML/CSS",
+      "logo": "https://upload.wikimedia.org/wikipedia/commons/6/61/HTML5_logo_and_wordmark.svg",
+      "descripcion": "Maquetación responsive con CSS3, Flexbox y Grid",
+      "nivel": 95,
+      "categoria": "Frontend"
+    },
+    {
+      "id": 5,
+      "nombre": "Git",
+      "logo": "https://upload.wikimedia.org/wikipedia/commons/e/e0/Git-logo.svg",
+      "descripcion": "Control de versiones y colaboración en equipos de desarrollo",
+      "nivel": 85,
+      "categoria": "Herramientas"
+    },
+    {
+      "id": 6,
+      "nombre": "PrimeVue",
+      "logo": "https://primevue.org/favicon.ico",
+      "descripcion": "Componentes UI para Vue 3 con diseño profesional",
+      "nivel": 75,
+      "categoria": "Frontend"
+    },
+    {
+      "id": 7,
+      "nombre": "SQL",
+      "logo": "https://upload.wikimedia.org/wikipedia/commons/8/87/Sql_data_base_with_logo.svg",
+      "descripcion": "Diseño y gestión de bases de datos relacionales",
+      "nivel": 70,
+      "categoria": "Backend"
+    },
+    {
+      "id": 8,
+      "nombre": "Docker",
+      "logo": "https://upload.wikimedia.org/wikipedia/commons/4/4e/Docker_%28container_engine%29_logo.svg",
+      "descripcion": "Contenedores para desarrollo y despliegue de aplicaciones",
+      "nivel": 60,
+      "categoria": "DevOps"
+    }
+  ],
+  "experiencia": [
+    {
+      "id": 1,
+      "empresa": "TechSolutions S.L.",
+      "puesto": "Desarrollador Web Frontend",
+      "fechaInicio": "2023-01",
+      "fechaFin": "Presente",
+      "descripcion": "Desarrollo de aplicaciones web con Vue 3 y TypeScript. Implementación de nuevos módulos y optimización del rendimiento de aplicaciones existentes."
+    },
+    {
+      "id": 2,
+      "empresa": "Digital Agency",
+      "puesto": "Junior Developer",
+      "fechaInicio": "2022-03",
+      "fechaFin": "2022-12",
+      "descripcion": "Mantenimiento y desarrollo de sitios web corporativos. Trabajo con HTML, CSS, JavaScript y frameworks modernos."
+    },
+    {
+      "id": 3,
+      "empresa": "Freelance",
+      "puesto": "Desarrollador Web Freelance",
+      "fechaInicio": "2021-06",
+      "fechaFin": "2022-02",
+      "descripcion": "Desarrollo de proyectos web para clientes pequeños. Creación de tiendas online, landing pages y aplicaciones web a medida."
+    }
+  ],
+  "contacto": {
+    "email": "eduardo@ejemplo.com",
+    "linkedin": "https://linkedin.com/in/eduardo",
+    "github": "https://github.com/eduardo"
+  }
+}
+

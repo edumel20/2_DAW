@@ -1,25 +1,20 @@
-# Portfolio TODO List
+# Plan de Implementación del Portfolio
 
-## Phase 1: Setup & Data
-- [ ] Install PrimeFlex
-- [ ] Create data/portfolio.json with all portfolio data
+## ✅ Tareas Completadas
+- [x] 1. Base Vue + TypeScript + PrimeVue + Vue Router
+- [x] 2. Crear `src/data/cv.json` con datos del portfolio
+- [x] 3. Crear componente `TarjetaProyecto.vue`
+- [x] 4. Crear componente `TarjetaHabilidad.vue`
+- [x] 5. Crear `ProyectosView.vue`
+- [x] 6. Crear `HabilidadesView.vue`
+- [x] 7. Crear `ExperienciaView.vue`
+- [x] 8. Crear `ContactoView.vue`
+- [x] 9. Actualizar `router/index.ts` con nuevas rutas
+- [x] 10. Mejorar estilos del NavBar
+- [x] 11. Mejorar HomeView
+- [x] 12. Mejorar SobreMiView
 
-## Phase 2: Components
-- [ ] Create TarjetaProyecto.vue component
-- [ ] Create TarjetaHabilidad.vue component
-
-## Phase 3: Views
-- [ ] Create ProyectosView.vue
-- [ ] Create HabilidadesView.vue
-- [ ] Create ExperienciaView.vue
-- [ ] Create ContactoView.vue
-- [ ] Update HomeView.vue with hero section
-- [ ] Update SobreMiView.vue with content
-
-## Phase 4: Router
-- [ ] Update router/index.ts with all routes
-
-## Phase 5: Testing
-- [ ] Test all routes
-- [ ] Verify all components render correctly
+## 📝 Tareas Pendientes
+- [ ] 13. Probar en entorno de desarrollo
+- [ ] 14. Verificar que todo funciona correctamente
 
