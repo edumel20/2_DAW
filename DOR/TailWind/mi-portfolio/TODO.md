@@ -1,20 +1,34 @@
-# TODO - Portfolio Minimalista
+# TODO: Mejorar el Navbar para que concuerde con el diseño de la página
 
-## Fase 1: Estructura Base
-- [x] Analizar archivos existentes
-- [x] Confirmar plan con usuario
-- [x] Crear TODO.md
+## Objetivo
 
-## Fase 2: Archivos Principales
-- [x] Corregir index.html (eliminar código Vue)
-- [x] Mejorar App.vue con estructura completa
-- [x] Mejorar Navbar.vue con efectos
-- [x] Mejorar ProyectCard.vue con diseño profesional
-- [x] Configurar style.css con estilos globales
+Hacer que la barra de navegación incorpore los elementos decorativos del diseño principal (App.vue)
 
-## Fase 3: Verificación
-- [ ] Probar que el proyecto funciona correctamente
-- [ ] Verificar estilos Tailwind
+## Tareas
 
-## Estado: COMPLETADO
+### 1. Añadir orbes de gradiente al Navbar
 
+- [x] Añadir orbe cian (#22d3ee) sutil en la parte superior izquierda
+- [x] Añadir orbe púrpura (#a855f7) sutil en la parte superior derecha
+- [x] Ajustar opacidad y blur para que no distraigan
+
+### 2. Incorporar grid de fondo
+
+- [x] Añadir patrón de grid sutil (opacity 0.03) en el header
+- [x] Usar los mismos colores que en App.vue
+
+### 3. Añadir elementos geométricos flotantes
+
+- [x] Añadir círculo con borde cian/20 en el Navbar
+- [x] Añadir círculo con borde púrpura/25 en el Navbar
+- [x] Añadir cuadrado rotado con borde cian/20
+- [x] Configurar animaciones float y float-delayed
+
+### 4. Ajustar estilos existentes
+
+- [x] Verificar que los gradientes actuales coincidan con la paleta
+- [x] Asegurar transiciones suaves
+
+## Archivos a modificar
+
+- src/components/Navbar.vue
