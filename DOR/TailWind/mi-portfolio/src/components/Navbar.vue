@@ -7,15 +7,12 @@ const isMobileMenuOpen = ref(false)
 const scrollProgress = ref(0)
 
 const navItems = [
-  { id: 'home', label: 'Home', icon: 'M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6' },
   { id: 'about', label: 'About', icon: 'M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z' },
   { id: 'projects', label: 'Projects', icon: 'M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10' },
   { id: 'contact', label: 'Contact', icon: 'M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z' },
 ]
 
-const socialLinks = [
-  { name: 'GitHub', icon: 'M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z', url: 'https://github.com' },
-]
+const socialLinks = []
 
 const handleScroll = () => {
   isScrolled.value = window.scrollY > 50
@@ -26,7 +23,7 @@ const handleScroll = () => {
   scrollProgress.value = (winScroll / height) * 100
   
   // Determine active section
-  const sections = ['home', 'about', 'projects', 'contact']
+  const sections = ['about', 'projects', 'contact']
   for (const id of sections.reverse()) {
     const section = document.getElementById(id)
     if (section) {
@@ -130,9 +127,9 @@ onUnmounted(() => {
       style="background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(34, 211, 238, 0.03) 2px, rgba(34, 211, 238, 0.03) 4px);"
     ></div>
     
-    <nav class="relative w-full px-6">
+    <nav class="relative w-full max-w-6xl mx-auto px-6">
       <div class="flex justify-between items-center">
-        <!-- Enhanced Logo with multiple effects -->
+        <!-- Logo -->
         <a 
           href="#home" 
           class="group relative flex items-center gap-3"
@@ -159,14 +156,14 @@ onUnmounted(() => {
             <span class="absolute inset-0 bg-[#22d3ee] blur-xl opacity-0 group-hover:opacity-40 transition-opacity duration-300 rounded-full"></span>
           </div>
           
-          <!-- Brand name -->
-          <div class="hidden sm:block">
-            <span class="text-lg font-bold text-white group-hover:text-[#22d3ee] transition-colors duration-300">Eduardo</span>
-          </div>
+
         </a>
         
         <!-- Enhanced Desktop Navigation -->
-        <ul class="hidden xl:flex w-full items-center justify-between gap-2 px-4">
+        <!-- Spacer to center the navigation -->
+        <div class="flex-1 hidden xl:block"></div>
+        
+        <ul class="hidden xl:flex w-auto items-center justify-center gap-8 px-4">
           <li v-for="(item, index) in navItems" :key="item.id">
             <a 
               :href="`#${item.id}`"
@@ -186,7 +183,10 @@ onUnmounted(() => {
               
               <!-- Hover background with gradient -->
               <span 
-                class="absolute inset-0 bg-gradient-to-r from-[#22d3ee]/20 via-[#a855f7]/10 to-[#22d3ee]/20 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                :class="[
+                  'absolute inset-0 bg-gradient-to-r from-[#22d3ee]/20 via-[#a855f7]/10 to-[#22d3ee]/20 rounded-lg transition-opacity duration-300',
+                  'opacity-0 group-hover:opacity-100'
+                ]"
               ></span>
               
               <!-- Glow effect -->
@@ -221,26 +221,6 @@ onUnmounted(() => {
 
         <!-- Enhanced CTA and Social -->
         <div class="hidden xl:flex items-center gap-4">
-          <!-- Social links -->
-          <div class="flex items-center gap-2 pr-4 border-r border-[#333]">
-            <a 
-              v-for="social in socialLinks" 
-              :key="social.name"
-              :href="social.url"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="p-2 text-[#666] hover:text-[#22d3ee] hover:bg-[#22d3ee]/10 rounded-lg transition-all duration-300 group"
-            >
-              <svg 
-                xmlns="http://www.w3.org/2000/svg" 
-                class="w-4 h-4 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-12"
-                fill="currentColor" 
-                viewBox="0 0 24 24"
-              >
-                <path :d="social.icon" />
-              </svg>
-            </a>
-          </div>
         </div>
 
         <!-- Mobile menu button -->
@@ -326,25 +306,6 @@ onUnmounted(() => {
           
           <!-- Mobile menu footer with social -->
           <div class="px-4 py-3 border-t border-[#222] bg-[#0a0a0a]/50">
-            <div class="flex items-center gap-3">
-              <a 
-                v-for="social in socialLinks" 
-                :key="social.name"
-                :href="social.url"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="p-2 text-[#666] hover:text-[#22d3ee] hover:bg-[#22d3ee]/10 rounded-lg transition-all duration-300"
-              >
-                <svg 
-                  xmlns="http://www.w3.org/2000/svg" 
-                  class="w-4 h-4" 
-                  fill="currentColor" 
-                  viewBox="0 0 24 24"
-                >
-                  <path :d="social.icon" />
-                </svg>
-              </a>
-            </div>
           </div>
         </div>
       </transition>

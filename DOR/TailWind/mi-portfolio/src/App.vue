@@ -8,35 +8,35 @@ const mouseY = ref(0)
 const projects = [
   {
     id: 1,
-    title: "E-Commerce Dashboard",
-    description: "Panel de administración moderno con Vue 3 y Tailwind CSS, incluyendo gráficos interactivos y gestión de productos en tiempo real.",
-    tags: ["Vue 3", "Tailwind", "Chart.js"],
+    title: "Lumino",
+    description: "Academia de enseñanza online",
+    tags: ["Django", "BootsTrap", "Python"],
     demoUrl: "https://example1.com",
-    codeUrl: "https://github.com",
+    codeUrl: "https://github.com/edumel20/lumino",
   },
   {
     id: 2,
-    title: "Task Manager App",
-    description: "Aplicación de gestión de tareas con drag & drop, categorías y sincronización con base de datos.",
-    tags: ["Vue 3", "Pinia", "Firebase"],
+    title: "Tribu",
+    description: "Proyecto de red social",
+    tags: ["Django", "BootsTrap", "Python"],
     demoUrl: "https://example2.com",
-    codeUrl: "https://github.com",
+    codeUrl: "https://github.com/edumel20/tribu",
   },
   {
     id: 3,
-    title: "Weather Forecast",
-    description: "App meteorológica con geolocalización, pronóstico extendido y animaciones suaves.",
-    tags: ["Vue 3", "API Rest", "CSS Animations"],
+    title: "GameSider",
+    description: "API enfocada en videojuegos",
+    tags: ["Django", "BootsTrap", "Python"],
     demoUrl: "https://example3.com",
-    codeUrl: "https://github.com",
+    codeUrl: "https://github.com/edumel20/gameside",
   },
   {
     id: 4,
-    title: "Portfolio Template",
-    description: "Template minimalista para portfolios personales, completamente responsive y personalizable.",
-    tags: ["Vue 3", "Tailwind", "Vite"],
+    title: "Portfolio en Vue",
+    description: "Portfolio hecho con Vue y distintas dependencias del mismo",
+    tags: ["Vue 3", "Vite"],
     demoUrl: "https://example4.com",
-    codeUrl: "https://github.com",
+    codeUrl: "https://github.com/edumel20/2_DAW/tree/main/DEW/VUE/portfolio",
   },
 ]
 
@@ -138,7 +138,7 @@ onUnmounted(() => {
         </svg>
       </div>
 
-      <div class="relative max-w-5xl mx-auto px-8 pt-32 z-20">
+      <div class="relative max-w-6xl mx-auto px-12 pt-32 z-20">
         <!-- Hero Section -->
         <section id="home" class="min-h-screen flex flex-col justify-center pb-20">
           <div class="space-y-8 animate-fade-in-up text-center">
@@ -209,14 +209,19 @@ onUnmounted(() => {
             </div>
           </div>
         </section>
-
+    
         <!-- About Section -->
-        <section id="about" class="py-48 border-t border-[#222] relative">
+        <section id="about" class="py-32 relative flex flex-col items-center">
+          <!-- Separador visual -->
+          <div class="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-[#22d3ee] via-[#a855f7]/50 to-[#22d3ee]"></div>
+          <!-- Línea punteada decorativa -->
+          <div class="absolute top-1 left-0 right-0 h-px border-t border-dashed border-[#22d3ee]/20"></div>
+          
           <!-- Section decoration -->
           <div class="absolute top-0 right-0 w-64 h-64 bg-[#22d3ee]/5 rounded-full blur-[100px] pointer-events-none"></div>
           
-          <div class="grid lg:grid-cols-2 gap-16 text-center lg:text-left">
-            <div class="relative">
+          <div class="flex flex-col items-center w-full max-w-4xl">
+            <div class="relative text-center mb-8">
               <h2 class="text-sm font-medium text-[#22d3ee] uppercase tracking-widest mb-4">About</h2>
               <h3 class="text-3xl md:text-4xl font-semibold text-white mb-6">
                 Building digital products with <span class="gradient-text">purpose</span> and <span class="gradient-text">precision</span>.
@@ -225,7 +230,7 @@ onUnmounted(() => {
               <!-- Decorative element -->
               <div class="absolute -left-4 top-0 w-20 h-[1px] bg-gradient-to-r from-[#22d3ee] to-transparent"></div>
             </div>
-            <div class="space-y-6 text-[#888] leading-relaxed">
+            <div class="space-y-6 text-white leading-relaxed bg-[#111] border border-[#222] rounded-xl p-6 w-full max-w-2xl">
               <p class="relative pl-4 border-l-2 border-[#22d3ee]/30 hover:border-[#22d3ee] transition-colors duration-300">
                 I'm a frontend developer focused on creating clean, performant, and accessible web experiences. I believe great software should be invisible—working seamlessly to serve its users.
               </p>
@@ -233,8 +238,8 @@ onUnmounted(() => {
                 Currently building with Vue.js, React, and modern CSS. Always learning, always creating.
               </p>
               <div class="pt-6">
-                <h4 class="text-sm font-medium text-[#666] uppercase tracking-wider mb-4 text-center lg:text-left">Skills</h4>
-                <div class="flex flex-wrap gap-2 justify-center lg:justify-start">
+                <h4 class="text-sm font-medium text-[#666] uppercase tracking-wider mb-4 text-center">Skills</h4>
+                <div class="flex flex-wrap gap-2 justify-center">
                   <span 
                     v-for="(skill, index) in skills" 
                     :key="skill"
@@ -250,23 +255,30 @@ onUnmounted(() => {
         </section>
 
         <!-- Projects Section -->
-        <section id="projects" class="py-48 border-t border-[#222] relative">
+        <section id="projects" class="py-32 relative flex flex-col items-center">
+          <!-- Separador visual -->
+          <div class="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-[#a855f7] via-[#22d3ee] to-[#a855f7]"></div>
+          <!-- Línea punteada decorativa -->
+          <div class="absolute top-1 left-0 right-0 h-px border-t border-dashed border-[#a855f7]/20"></div>
+          <!-- Glow effect -->
+          <div class="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-1 bg-[#a855f7]/30 blur-sm"></div>
+          
           <!-- Section decoration -->
           <div class="absolute top-0 left-0 w-64 h-64 bg-[#a855f7]/5 rounded-full blur-[100px] pointer-events-none"></div>
           
-          <div class="flex flex-col md:flex-row md:items-center justify-between mb-16 gap-8 text-center md:text-left">
-            <div class="w-full text-center md:text-left">
+          <div class="flex flex-col items-center mb-16 gap-8 text-center w-full max-w-4xl">
+            <div class="w-full text-center">
               <h2 class="text-sm font-medium text-[#22d3ee] uppercase tracking-widest mb-4">Projects</h2>
               <h3 class="text-3xl md:text-4xl font-semibold text-white">Selected Work</h3>
             </div>
-            <div class="flex gap-2 mx-auto md:mx-0">
+            <div class="flex gap-2">
               <div class="w-2 h-2 rounded-full bg-[#22d3ee]"></div>
               <div class="w-2 h-2 rounded-full bg-[#a855f7]"></div>
               <div class="w-2 h-2 rounded-full bg-[#22d3ee]"></div>
             </div>
           </div>
           
-          <div class="grid md:grid-cols-2 gap-8 w-full">
+          <div class="grid md:grid-cols-2 gap-16 w-full max-w-4xl">
             <ProyectCard
               v-for="(project, index) in projects"
               :key="project.id"
@@ -278,12 +290,17 @@ onUnmounted(() => {
         </section>
 
         <!-- Contact Section -->
-        <section id="contact" class="py-48 border-t border-[#222] mb-20 relative">
+        <section id="contact" class="py-32 mb-20 relative flex flex-col items-center">
+          <!-- Separador visual -->
+          <div class="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-[#22d3ee] via-[#a855f7]/30 to-[#22d3ee]"></div>
+          <!-- Línea punteada decorativa -->
+          <div class="absolute top-1 left-0 right-0 h-px border-t border-dashed border-[#22d3ee]/20"></div>
+          
           <!-- Section decoration -->
           <div class="absolute bottom-0 right-0 w-96 h-96 bg-[#22d3ee]/5 rounded-full blur-[120px] pointer-events-none"></div>
           
-          <div class="grid lg:grid-cols-2 gap-16 text-center lg:text-left">
-            <div class="relative">
+          <div class="flex flex-col items-center gap-16 text-center w-full max-w-4xl">
+            <div class="relative text-center">
               <h2 class="text-sm font-medium text-[#a855f7] uppercase tracking-widest mb-4">Contact</h2>
               <h3 class="text-3xl md:text-4xl font-semibold text-white mb-6">
                 Let's work <span class="gradient-text">together</span>.
@@ -309,7 +326,7 @@ onUnmounted(() => {
               </div>
             </div>
             
-            <div class="space-y-4 w-full">
+            <div class="space-y-4 w-full max-w-md">
               <a 
                 href="mailto:alumno@gmail.com" 
                 class="group relative flex items-center gap-4 p-6 bg-[#111] border border-[#222] rounded-xl overflow-hidden transition-all duration-300 hover:border-[#22d3ee] hover:bg-[#0a0a0a] hover:shadow-[0_0_30px_rgba(34,211,238,0.15)]"
@@ -322,7 +339,7 @@ onUnmounted(() => {
                 </div>
                 <div class="relative z-10">
                   <p class="text-sm text-[#666] uppercase tracking-wider">Email</p>
-                  <p class="text-white group-hover:text-[#22d3ee] transition-colors">alumno@gmail.com</p>
+                  <p class="text-white group-hover:text-[#22d3ee] transition-colors">rabadanmelianeduardo@gmail.com</p>
                 </div>
                 <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-[#444] ml-auto group-hover:text-[#22d3ee] group-hover:translate-x-1 transition-all" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
@@ -343,7 +360,7 @@ onUnmounted(() => {
                 </div>
                 <div class="relative z-10">
                   <p class="text-sm text-[#666] uppercase tracking-wider">GitHub</p>
-                  <p class="text-white group-hover:text-[#a855f7] transition-colors">github.com/eduardo</p>
+                  <p class="text-white group-hover:text-[#a855f7] transition-colors">github.com/edumel20</p>
                 </div>
                 <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-[#444] ml-auto group-hover:text-[#a855f7] group-hover:translate-x-1 transition-all" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
@@ -377,6 +394,9 @@ onUnmounted(() => {
 
       <!-- Footer -->
       <footer class="relative border-t border-[#222] py-8 z-20">
+        <!-- Separador glow -->
+        <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-[#22d3ee]/20 via-[#a855f7]/20 to-[#22d3ee]/20"></div>
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-16 h-1 bg-[#22d3ee]/20 blur-sm"></div>
         <div class="max-w-4xl mx-auto px-6 flex flex-col sm:flex-row justify-center sm:justify-between items-center gap-4 text-sm text-[#555]">
           <p>© 2025 Eduardo. All rights reserved.</p>
           <p class="flex items-center gap-2">
