@@ -24,9 +24,6 @@ body {
   overflow-x: hidden;
 }
 
-/* ===== ANIMACIONES FUTURISTAS ===== */
-
-/* Fade in with glow */
 @keyframes fade-in {
   from {
     opacity: 0;
@@ -57,7 +54,6 @@ body {
   animation: fade-in-up 1s ease-out forwards;
 }
 
-/* Glow effect */
 @keyframes glow {
   0%,
   100% {
@@ -100,7 +96,6 @@ body {
   }
 }
 
-/* Glitch effect */
 @keyframes glitch {
   0% {
     transform: translate(0);
@@ -147,7 +142,6 @@ body {
   animation: glitch 0.3s ease-in-out;
 }
 
-/* Border glow animation */
 @keyframes border-glow {
   0% {
     border-color: rgba(34, 211, 238, 0.3);
@@ -173,7 +167,6 @@ body {
   animation: border-glow 3s ease-in-out infinite;
 }
 
-/* Floating animation */
 @keyframes float {
   0%,
   100% {
@@ -203,7 +196,6 @@ body {
   animation-delay: 1s;
 }
 
-/* Pulse ring */
 @keyframes pulse-ring {
   0% {
     transform: scale(0.8);
@@ -225,7 +217,6 @@ body {
   z-index: -1;
 }
 
-/* Scanline effect */
 @keyframes scanline {
   0% {
     transform: translateY(-100%);
@@ -253,7 +244,6 @@ body {
   z-index: 9999;
 }
 
-/* Grid animation */
 @keyframes grid-move {
   0% {
     transform: translate(0, 0);
@@ -267,7 +257,6 @@ body {
   animation: grid-move 20s linear infinite;
 }
 
-/* ===== CUSTOM SCROLLBAR FUTURISTA ===== */
 ::-webkit-scrollbar {
   width: 8px;
 }
@@ -288,7 +277,6 @@ body {
   box-shadow: 0 0 20px rgba(34, 211, 238, 0.8);
 }
 
-/* Selection color */
 ::selection {
   background: linear-gradient(
     90deg,
@@ -298,21 +286,16 @@ body {
   color: #ffffff;
 }
 
-/* Focus styles */
 :focus-visible {
   outline: 2px solid #22d3ee;
   outline-offset: 4px;
   border-radius: 4px;
 }
 
-/* Link styles */
 a {
   transition: all 0.3s ease;
 }
 
-/* ===== CLASES UTILITARIAS FUTURISTAS ===== */
-
-/* Glassmorphism */
 .glass {
   background: rgba(10, 10, 10, 0.7);
   backdrop-filter: blur(20px);
@@ -327,7 +310,6 @@ a {
   border: 1px solid rgba(34, 211, 238, 0.2);
 }
 
-/* Glow utilities */
 .glow-cyan {
   box-shadow:
     0 0 20px rgba(34, 211, 238, 0.3),
@@ -346,7 +328,6 @@ a {
     0 0 40px rgba(168, 85, 247, 0.2);
 }
 
-/* Neon text */
 .neon-cyan {
   color: #22d3ee;
   text-shadow:
@@ -363,7 +344,6 @@ a {
     0 0 30px rgba(168, 85, 247, 0.3);
 }
 
-/* Gradient text */
 .gradient-text {
   background: linear-gradient(135deg, #22d3ee 0%, #a855f7 50%, #22d3ee 100%);
   background-size: 200% 200%;
@@ -385,7 +365,6 @@ a {
   }
 }
 
-/* Spotlight effect */
 .spotlight {
   position: relative;
   overflow: hidden;
@@ -414,7 +393,6 @@ a {
   opacity: 1;
 }
 
-/* 3D card effect */
 .perspective-1000 {
   perspective: 1000px;
 }
@@ -424,7 +402,6 @@ a {
   backface-visibility: hidden;
 }
 
-/* Border gradient */
 .border-gradient {
   position: relative;
   background: #111;
@@ -447,7 +424,6 @@ a {
   pointer-events: none;
 }
 
-/* Loading shimmer */
 @keyframes shimmer {
   0% {
     background-position: -200% 0;
@@ -468,7 +444,6 @@ a {
   animation: shimmer 2s infinite;
 }
 
-/* Typing cursor */
 @keyframes blink {
   0%,
   50% {
@@ -484,7 +459,6 @@ a {
   animation: blink 1s step-end infinite;
 }
 
-/* Noise texture overlay */
 .noise::after {
   content: "";
   position: fixed;

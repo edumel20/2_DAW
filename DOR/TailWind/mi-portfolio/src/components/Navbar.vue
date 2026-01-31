@@ -17,12 +17,10 @@ const socialLinks = []
 const handleScroll = () => {
   isScrolled.value = window.scrollY > 50
   
-  // Calculate scroll progress
   const winScroll = document.documentElement.scrollTop || document.body.scrollTop
   const height = document.documentElement.scrollHeight - document.documentElement.clientHeight
   scrollProgress.value = (winScroll / height) * 100
   
-  // Determine active section
   const sections = ['about', 'projects', 'contact']
   for (const id of sections.reverse()) {
     const section = document.getElementById(id)
@@ -58,13 +56,11 @@ onUnmounted(() => {
         : 'bg-transparent py-5'
     ]"
   >
-    <!-- Scroll progress bar -->
     <div 
       class="absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-[#22d3ee] via-[#a855f7] to-[#22d3ee] transition-all duration-100"
       :style="{ width: `${scrollProgress}%` }"
     ></div>
     
-    <!-- Background grid pattern -->
     <div 
       class="absolute inset-0 opacity-[0.03]"
       :class="{ 'pointer-events-none': !isScrolled }"
@@ -77,36 +73,29 @@ onUnmounted(() => {
       "></div>
     </div>
     
-    <!-- Enhanced gradient orbs -->
     <div class="absolute inset-0 overflow-hidden pointer-events-none">
       <div class="absolute top-[-50%] left-[-10%] w-[40%] h-[40%] bg-[#22d3ee]/10 rounded-full blur-[120px] animate-float" :class="{ 'opacity-0': !isScrolled, 'opacity-100': isScrolled }" style="transition: opacity 0.5s;"></div>
       <div class="absolute top-[-30%] right-[-10%] w-[35%] h-[35%] bg-[#a855f7]/10 rounded-full blur-[120px] animate-float-delayed" :class="{ 'opacity-0': !isScrolled, 'opacity-100': isScrolled }" style="transition: opacity 0.5s; animation-delay: 1s;"></div>
       <div class="absolute top-[10%] left-[40%] w-[20%] h-[20%] bg-[#22d3ee]/8 rounded-full blur-[100px] animate-pulse" :class="{ 'opacity-0': !isScrolled, 'opacity-100': isScrolled }" style="transition: opacity 0.5s;"></div>
-      <!-- Additional orbs -->
       <div class="absolute bottom-[-30%] left-[30%] w-[25%] h-[25%] bg-[#a855f7]/6 rounded-full blur-[100px] animate-pulse" :class="{ 'opacity-0': !isScrolled, 'opacity-100': isScrolled }" style="transition: opacity 0.5s; animation-delay: 1.5s;"></div>
     </div>
     
-    <!-- Enhanced floating geometric elements -->
     <div class="absolute inset-0 overflow-hidden pointer-events-none">
-      <!-- Circle top-right -->
       <div 
         class="absolute top-2 right-[20%] w-12 h-12 border border-[#22d3ee]/30 rounded-full animate-float"
         :class="{ 'opacity-0': !isScrolled, 'opacity-100': isScrolled }"
         style="transition: opacity 0.5s; animation-duration: 8s;"
       ></div>
-      <!-- Circle bottom-left -->
       <div 
         class="absolute bottom-[-20%] left-[10%] w-16 h-16 border border-[#a855f7]/30 rounded-full animate-float-delayed"
         :class="{ 'opacity-0': !isScrolled, 'opacity-100': isScrolled }"
         style="transition: opacity 0.5s; animation-duration: 10s; animation-delay: 2s;"
       ></div>
-      <!-- Rotated square -->
       <div 
         class="absolute top-3 left-[25%] w-8 h-8 border border-[#22d3ee]/30 rotate-45 animate-float"
         :class="{ 'opacity-0': !isScrolled, 'opacity-100': isScrolled }"
         style="transition: opacity 0.5s; animation-duration: 9s; animation-delay: 0.5s;"
       ></div>
-      <!-- Triangle decoration -->
       <div 
         class="absolute top-1/2 right-[5%] w-6 h-6 border border-[#a855f7]/30 rotate-180 animate-float"
         :class="{ 'opacity-0': !isScrolled, 'opacity-100': isScrolled }"
@@ -114,13 +103,11 @@ onUnmounted(() => {
       ></div>
     </div>
     
-    <!-- Enhanced glow effect when scrolled -->
     <div 
       v-if="isScrolled"
       class="absolute inset-0 bg-gradient-to-r from-[#22d3ee]/10 via-transparent to-[#a855f7]/10 opacity-60"
     ></div>
     
-    <!-- Scanline effect -->
     <div 
       v-if="isScrolled"
       class="absolute inset-0 pointer-events-none"
@@ -129,40 +116,32 @@ onUnmounted(() => {
     
     <nav class="relative w-full max-w-6xl mx-auto px-6">
       <div class="flex justify-between items-center">
-        <!-- Logo -->
         <a 
           href="#home" 
           class="group relative flex items-center gap-3"
         >
-          <!-- Logo icon with rotation effect -->
           <div class="relative w-10 h-10 flex items-center justify-center">
-            <!-- Outer rotating ring -->
             <div 
               class="absolute inset-0 rounded-xl border-2 border-[#22d3ee]/30 animate-spin-slow"
               style="animation-duration: 8s;"
               :class="{ 'opacity-0': !isScrolled, 'opacity-100': isScrolled }"
             ></div>
-            <!-- Inner rotating ring (reverse) -->
             <div 
               class="absolute inset-1 rounded-lg border border-[#a855f7]/30 animate-spin-slow"
               style="animation-duration: 10s; animation-direction: reverse;"
               :class="{ 'opacity-0': !isScrolled, 'opacity-100': isScrolled }"
             ></div>
-            <!-- Logo text -->
             <span class="relative z-10 text-2xl font-bold text-white group-hover:text-[#22d3ee] transition-all duration-300">
               E<span class="text-[#22d3ee] group-hover:text-[#a855f7] transition-colors duration-300">.</span>
             </span>
-            <!-- Glow effect -->
             <span class="absolute inset-0 bg-[#22d3ee] blur-xl opacity-0 group-hover:opacity-40 transition-opacity duration-300 rounded-full"></span>
           </div>
           
 
         </a>
         
-        <!-- Enhanced Desktop Navigation -->
-        <!-- Spacer to center the navigation -->
-        <div class="flex-1 hidden xl:block"></div>
-        
+       
+        <div class="flex-1 hidden xl:block"></div> 
         <ul class="hidden xl:flex w-auto items-center justify-center gap-8 px-4">
           <li v-for="(item, index) in navItems" :key="item.id">
             <a 
@@ -175,13 +154,11 @@ onUnmounted(() => {
               ]"
               :style="{ animationDelay: `${index * 0.1}s` }"
             >
-              <!-- Background for active state with gradient -->
               <span 
                 v-if="activeSection === item.id"
                 class="absolute inset-0 bg-[#22d3ee] rounded-lg"
               ></span>
               
-              <!-- Hover background with gradient -->
               <span 
                 :class="[
                   'absolute inset-0 bg-gradient-to-r from-[#22d3ee]/20 via-[#a855f7]/10 to-[#22d3ee]/20 rounded-lg transition-opacity duration-300',
@@ -189,13 +166,11 @@ onUnmounted(() => {
                 ]"
               ></span>
               
-              <!-- Glow effect -->
               <span 
                 v-if="activeSection === item.id"
                 class="absolute inset-0 bg-[#22d3ee] blur-md opacity-40 rounded-lg"
               ></span>
               
-              <!-- Icon -->
               <svg 
                 xmlns="http://www.w3.org/2000/svg" 
                 class="w-4 h-4 relative z-10 transition-transform duration-300 group-hover:scale-110"
@@ -210,7 +185,6 @@ onUnmounted(() => {
               
               <span class="relative z-10">{{ item.label }}</span>
               
-              <!-- Decorative line for active state -->
               <span 
                 v-if="activeSection === item.id"
                 class="absolute bottom-0 left-1/2 -translate-x-1/2 w-1 h-1 bg-[#0a0a0a] rounded-full"
@@ -219,11 +193,9 @@ onUnmounted(() => {
           </li>
         </ul>
 
-        <!-- Enhanced CTA and Social -->
         <div class="hidden xl:flex items-center gap-4">
         </div>
 
-        <!-- Mobile menu button -->
         <button 
           @click="toggleMobileMenu"
           class="xl:hidden relative p-2.5 text-[#888] hover:text-white hover:bg-[#222] rounded-lg transition-all duration-300 group"
@@ -251,7 +223,6 @@ onUnmounted(() => {
         </button>
       </div>
 
-      <!-- Enhanced Mobile menu -->
       <transition
         enter-active-class="transition-all duration-400 ease-out"
         enter-from-class="opacity-0 -translate-y-6"
@@ -264,7 +235,6 @@ onUnmounted(() => {
           v-if="isMobileMenuOpen"
           class="xl:hidden absolute top-full left-0 right-0 mt-3 mx-4 glass-strong rounded-2xl overflow-hidden shadow-2xl shadow-[#22d3ee]/10"
         >
-          <!-- Mobile menu header -->
           <div class="px-4 py-3 border-b border-[#22d3ee]/20 bg-gradient-to-r from-[#22d3ee]/10 to-[#a855f7]/10">
             <div class="flex items-center gap-3">
               <span class="w-2 h-2 bg-[#22d3ee] rounded-full animate-pulse"></span>
@@ -302,9 +272,7 @@ onUnmounted(() => {
                 ></span>
               </a>
             </li>
-          </ul>
-          
-          <!-- Mobile menu footer with social -->
+          </ul>          
           <div class="px-4 py-3 border-t border-[#222] bg-[#0a0a0a]/50">
           </div>
         </div>
@@ -314,18 +282,15 @@ onUnmounted(() => {
 </template>
 
 <style scoped>
-/* Smooth transitions */
 a, button {
   -webkit-tap-highlight-color: transparent;
 }
 
-/* Selection color override */
 ::selection {
   background: rgba(34, 211, 238, 0.3);
   color: #0a0a0a;
 }
 
-/* Glass effect */
 .glass-strong {
   background: rgba(10, 10, 10, 0.95);
   backdrop-filter: blur(20px);
@@ -333,7 +298,6 @@ a, button {
   border: 1px solid rgba(34, 211, 238, 0.2);
 }
 
-/* Slow spin animation */
 @keyframes spin-slow {
   from {
     transform: rotate(0deg);

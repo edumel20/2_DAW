@@ -70,18 +70,14 @@ onUnmounted(() => {
     class="min-h-screen bg-[#0a0a0a] text-[#e0e0e0] font-sans selection:bg-[#22d3ee]/30 relative overflow-x-hidden"
     :style="{ '--mouse-x': `${mouseX}%`, '--mouse-y': `${mouseY}%` }"
   >
-    <!-- Noise texture overlay -->
     <div class="noise fixed inset-0 pointer-events-none z-50"></div>
     
-    <!-- Scanline effect -->
     <div class="scanline fixed inset-0 pointer-events-none z-[9999]"></div>
     
     <Navbar />
     
     <main class="relative">
-      <!-- Advanced background with grid and gradients -->
       <div class="fixed inset-0 overflow-hidden pointer-events-none z-0">
-        <!-- Animated grid -->
         <div class="absolute inset-0 opacity-[0.03]">
           <div class="absolute inset-0" style="
             background-image: 
@@ -91,17 +87,14 @@ onUnmounted(() => {
           "></div>
         </div>
         
-        <!-- Multiple gradient orbs -->
         <div class="absolute top-[-15%] left-[-10%] w-[50%] h-[50%] bg-[#22d3ee]/8 rounded-full blur-[150px] animate-float"></div>
         <div class="absolute bottom-[-15%] right-[-10%] w-[50%] h-[50%] bg-[#a855f7]/8 rounded-full blur-[150px] animate-float-delayed"></div>
         <div class="absolute top-[40%] left-[60%] w-[30%] h-[30%] bg-[#22d3ee]/4 rounded-full blur-[100px] animate-pulse"></div>
         <div class="absolute top-[10%] right-[20%] w-[25%] h-[25%] bg-[#a855f7]/5 rounded-full blur-[120px] animate-pulse" style="animation-delay: 2s;"></div>
         
-        <!-- Central glow -->
         <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80%] h-[80%] bg-gradient-radial from-[#22d3ee]/10 via-transparent to-transparent rounded-full blur-[100px]"></div>
       </div>
 
-      <!-- Spotlight effect following cursor -->
       <div class="fixed inset-0 pointer-events-none z-10 opacity-30">
         <div 
           class="absolute w-[600px] h-[600px] rounded-full blur-[120px] pointer-events-none transition-all duration-500 ease-out"
@@ -113,19 +106,14 @@ onUnmounted(() => {
         ></div>
       </div>
 
-      <!-- Floating geometric elements -->
       <div class="fixed inset-0 pointer-events-none z-10 overflow-hidden">
-        <!-- Floating circles -->
         <div class="absolute top-[20%] right-[10%] w-20 h-20 border border-[#22d3ee]/20 rounded-full animate-float" style="animation-duration: 8s;"></div>
         <div class="absolute bottom-[30%] left-[5%] w-12 h-12 border border-[#a855f7]/30 rounded-full animate-float-delayed" style="animation-duration: 10s;"></div>
         <div class="absolute top-[60%] right-[15%] w-8 h-8 border border-[#22d3ee]/40 rounded-full animate-float" style="animation-duration: 6s; animation-delay: 1s;"></div>
         <div class="absolute top-[30%] left-[15%] w-16 h-16 border border-[#a855f7]/20 rounded-full animate-float-delayed" style="animation-duration: 12s;"></div>
-        
-        <!-- Floating squares -->
         <div class="absolute top-[15%] left-[25%] w-10 h-10 border border-[#22d3ee]/20 rotate-45 animate-float" style="animation-duration: 9s;"></div>
         <div class="absolute bottom-[20%] right-[20%] w-14 h-14 border border-[#a855f7]/25 rotate-12 animate-float-delayed" style="animation-duration: 11s;"></div>
         
-        <!-- Connecting lines decoration -->
         <svg class="absolute inset-0 w-full h-full opacity-[0.05]">
           <line x1="20%" y1="30%" x2="80%" y2="70%" stroke="url(#lineGradient)" stroke-width="1" />
           <line x1="70%" y1="20%" x2="30%" y2="80%" stroke="url(#lineGradient)" stroke-width="1" />
@@ -139,11 +127,9 @@ onUnmounted(() => {
       </div>
 
       <div class="relative max-w-6xl mx-auto px-12 pt-32 z-20">
-        <!-- Hero Section -->
         <section id="home" class="min-h-screen flex flex-col justify-center pb-20">
-          <div class="space-y-8 animate-fade-in-up text-center">
-            <!-- Status badge with glow -->
-            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#22d3ee]/5 border border-[#22d3ee]/30 text-[#22d3ee] text-sm group hover:bg-[#22d3ee]/10 transition-all duration-300">
+            <div class="space-y-8 animate-fade-in-up text-center">
+              <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#22d3ee]/5 border border-[#22d3ee]/30 text-[#22d3ee] text-sm group hover:bg-[#22d3ee]/10 transition-all duration-300">
               <span class="relative flex h-2 w-2">
                 <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#22d3ee] opacity-75"></span>
                 <span class="relative inline-flex rounded-full h-2 w-2 bg-[#22d3ee]"></span>
@@ -151,7 +137,6 @@ onUnmounted(() => {
               <span class="neon-cyan">Available for work</span>
             </div>
             
-            <!-- Glitch effect title -->
             <h1 class="text-6xl md:text-7xl lg:text-8xl font-bold tracking-tighter text-white relative">
               <span class="glitch inline-block relative" data-text="Eduardo">Eduardo<span class="text-[#22d3ee]">.</span></span>
             </h1>
@@ -184,7 +169,6 @@ onUnmounted(() => {
               </a>
             </div>
             
-            <!-- Stats decoration -->
             <div class="flex gap-8 pt-8 border-t border-[#222] justify-center">
               <div class="text-center">
                 <p class="text-3xl font-bold gradient-text">4+</p>
@@ -201,7 +185,6 @@ onUnmounted(() => {
             </div>
           </div>
 
-          <!-- Enhanced scroll indicator -->
           <div class="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2">
             <span class="text-xs text-[#555] uppercase tracking-widest">Scroll</span>
             <div class="w-6 h-10 border-2 border-[#333] rounded-full flex justify-center pt-2">
@@ -210,14 +193,9 @@ onUnmounted(() => {
           </div>
         </section>
     
-        <!-- About Section -->
         <section id="about" class="py-32 relative flex flex-col items-center">
-          <!-- Separador visual -->
           <div class="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-[#22d3ee] via-[#a855f7]/50 to-[#22d3ee]"></div>
-          <!-- Línea punteada decorativa -->
-          <div class="absolute top-1 left-0 right-0 h-px border-t border-dashed border-[#22d3ee]/20"></div>
-          
-          <!-- Section decoration -->
+          <div class="absolute top-1 left-0 right-0 h-px border-t border-dashed border-[#22d3ee]/20"></div>          
           <div class="absolute top-0 right-0 w-64 h-64 bg-[#22d3ee]/5 rounded-full blur-[100px] pointer-events-none"></div>
           
           <div class="flex flex-col items-center w-full max-w-4xl">
@@ -227,7 +205,6 @@ onUnmounted(() => {
                 Building digital products with <span class="gradient-text">purpose</span> and <span class="gradient-text">precision</span>.
               </h3>
               
-              <!-- Decorative element -->
               <div class="absolute -left-4 top-0 w-20 h-[1px] bg-gradient-to-r from-[#22d3ee] to-transparent"></div>
             </div>
             <div class="space-y-6 text-white leading-relaxed bg-[#111] border border-[#222] rounded-xl p-6 w-full max-w-2xl">
@@ -254,16 +231,10 @@ onUnmounted(() => {
           </div>
         </section>
 
-        <!-- Projects Section -->
         <section id="projects" class="py-32 relative flex flex-col items-center">
-          <!-- Separador visual -->
           <div class="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-[#a855f7] via-[#22d3ee] to-[#a855f7]"></div>
-          <!-- Línea punteada decorativa -->
           <div class="absolute top-1 left-0 right-0 h-px border-t border-dashed border-[#a855f7]/20"></div>
-          <!-- Glow effect -->
-          <div class="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-1 bg-[#a855f7]/30 blur-sm"></div>
-          
-          <!-- Section decoration -->
+          <div class="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-1 bg-[#a855f7]/30 blur-sm"></div>          
           <div class="absolute top-0 left-0 w-64 h-64 bg-[#a855f7]/5 rounded-full blur-[100px] pointer-events-none"></div>
           
           <div class="flex flex-col items-center mb-16 gap-8 text-center w-full max-w-4xl">
@@ -289,14 +260,9 @@ onUnmounted(() => {
           </div>
         </section>
 
-        <!-- Contact Section -->
         <section id="contact" class="py-32 mb-20 relative flex flex-col items-center">
-          <!-- Separador visual -->
           <div class="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-[#22d3ee] via-[#a855f7]/30 to-[#22d3ee]"></div>
-          <!-- Línea punteada decorativa -->
-          <div class="absolute top-1 left-0 right-0 h-px border-t border-dashed border-[#22d3ee]/20"></div>
-          
-          <!-- Section decoration -->
+          <div class="absolute top-1 left-0 right-0 h-px border-t border-dashed border-[#22d3ee]/20"></div>          
           <div class="absolute bottom-0 right-0 w-96 h-96 bg-[#22d3ee]/5 rounded-full blur-[120px] pointer-events-none"></div>
           
           <div class="flex flex-col items-center gap-16 text-center w-full max-w-4xl">
@@ -309,7 +275,6 @@ onUnmounted(() => {
                 Have a project in mind or just want to say hello? I'd love to hear from you.
               </p>
               
-              <!-- Decorative tech specs -->
               <div class="mt-8 space-y-3 text-sm text-[#555]">
                 <p class="flex items-center gap-2">
                   <span class="w-1 h-1 bg-[#22d3ee] rounded-full"></span>
@@ -392,13 +357,11 @@ onUnmounted(() => {
         </section>
       </div>
 
-      <!-- Footer -->
       <footer class="relative border-t border-[#222] py-8 z-20">
-        <!-- Separador glow -->
         <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-[#22d3ee]/20 via-[#a855f7]/20 to-[#22d3ee]/20"></div>
         <div class="absolute top-0 left-1/2 -translate-x-1/2 w-16 h-1 bg-[#22d3ee]/20 blur-sm"></div>
         <div class="max-w-4xl mx-auto px-6 flex flex-col sm:flex-row justify-center sm:justify-between items-center gap-4 text-sm text-[#555]">
-          <p>© 2025 Eduardo. All rights reserved.</p>
+          <p>© 2026 Eduardo. All rights reserved.</p>
           <p class="flex items-center gap-2">
             <span>Built with</span>
             <span class="text-[#22d3ee] neon-cyan">Vue 3</span>
@@ -416,7 +379,6 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Custom scrollbar */
 ::-webkit-scrollbar {
   width: 6px;
 }
@@ -434,12 +396,10 @@ html {
   background: #444;
 }
 
-/* Background gradient for radial effect */
 .bg-gradient-radial {
   background: radial-gradient(ellipse at center, var(--tw-gradient-from) 0%, var(--tw-gradient-to) 100%);
 }
 
-/* Glitch effect styles */
 .glitch {
   position: relative;
 }

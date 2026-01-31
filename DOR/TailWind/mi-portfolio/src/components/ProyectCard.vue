@@ -9,19 +9,15 @@ defineProps({
 
 <template>
   <article class="relative mb-8">
-    <!-- Main card -->
     <div 
       class="relative bg-[#111] border border-[#222] rounded-xl p-6"
     >
-      <!-- Corner decorations -->
       <div class="absolute top-4 right-4 w-16 h-16 overflow-hidden">
         <div class="absolute top-0 right-0 w-16 h-16 border-t-2 border-r-2 border-[#22d3ee]/30 rounded-tr-xl"></div>
       </div>
       <div class="absolute bottom-4 left-4 w-16 h-16 overflow-hidden">
         <div class="absolute bottom-0 left-0 w-16 h-16 border-b-2 border-l-2 border-[#a855f7]/30 rounded-bl-xl"></div>
       </div>
-
-      <!-- Card content -->
       <div class="relative z-10">
         <div class="flex justify-between items-start gap-4 mb-4">
           <h3 class="font-semibold text-white text-lg">
@@ -69,15 +65,14 @@ defineProps({
           </span>
         </div>
       </div>
-      
-      <!-- Decorative elements -->
+
       <div class="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-[#22d3ee] via-[#a855f7] to-[#22d3ee] rounded-b-xl" style="background-size: 200% 100%;"></div>
     </div>
   </article>
 </template>
 
 <style scoped>
-/* Smooth transitions */
+
 a {
   -webkit-tap-highlight-color: transparent;
 }
